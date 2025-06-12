@@ -1,0 +1,10 @@
+name = "Impossibility"
+version = "0.1.0"
+defaultTargets = ["impossibility"]
+
+[[lean_lib]]
+name = "Impossibility"
+
+[[lean_exe]]
+name = "impossibility"
+root = "Main"

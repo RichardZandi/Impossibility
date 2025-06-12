@@ -1,0 +1,1 @@
+{"version":3,"references":{"{\"c\":{\"n\":\"Lean.Elab.autoImplicit\",\"m\":\"Lean.Elab.AutoBound\"}}":{"usages":[[13,11,13,23]],"definition":null}},"module":"Impossibility.Halting.HaltingUCI"}
