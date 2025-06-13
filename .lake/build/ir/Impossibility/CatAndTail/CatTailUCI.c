@@ -1,6 +1,6 @@
 // Lean compiler output
 // Module: Impossibility.CatAndTail.CatTailUCI
-// Imports: Init Mathlib.Computability.Primrec Mathlib.Computability.PartrecCode Mathlib.Data.Bool.Basic Godelnumbering.Godel Godelnumbering.Instances Impossibility.Evolution Impossibility.CatAndTail.CatTailWitness UCI.UCICore
+// Imports: Init Mathlib.Computability.Primrec Mathlib.Computability.PartrecCode Mathlib.Data.Bool.Basic Godelnumbering.Godel Godelnumbering.Instances Impossibility.Evolution Impossibility.CatAndTail.CatTailWitness Impossibility.UCICoreTest
 #include <lean/lean.h>
 #if defined(__clang__)
 #pragma clang diagnostic ignored "-Wunused-parameter"
@@ -55,7 +55,7 @@ lean_object* initialize_Godelnumbering_Godel(uint8_t builtin, lean_object*);
 lean_object* initialize_Godelnumbering_Instances(uint8_t builtin, lean_object*);
 lean_object* initialize_Impossibility_Evolution(uint8_t builtin, lean_object*);
 lean_object* initialize_Impossibility_CatAndTail_CatTailWitness(uint8_t builtin, lean_object*);
-lean_object* initialize_UCI_UCICore(uint8_t builtin, lean_object*);
+lean_object* initialize_Impossibility_UCICoreTest(uint8_t builtin, lean_object*);
 static bool _G_initialized = false;
 LEAN_EXPORT lean_object* initialize_Impossibility_CatAndTail_CatTailUCI(uint8_t builtin, lean_object* w) {
 lean_object * res;
@@ -85,7 +85,7 @@ lean_dec_ref(res);
 res = initialize_Impossibility_CatAndTail_CatTailWitness(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
-res = initialize_UCI_UCICore(builtin, lean_io_mk_world());
+res = initialize_Impossibility_UCICoreTest(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 return lean_io_result_mk_ok(lean_box(0));

@@ -5,7 +5,7 @@ import Godelnumbering.Godel
 import Godelnumbering.Instances
 import Impossibility.Evolution
 import Impossibility.CatAndTail.CatTailWitness           -- uses `E.reacts`
-import UCI.UCICore
+import Impossibility.UCICoreTest
 
 open Classical Evolution Nat.Partrec Code
 open Kleene.UCI.Classifier
@@ -79,5 +79,8 @@ lemma good?_code1 (E : Evolution) :
   exact
     Kleene.UCI.Classifier.uci (D := ℕ)
       Φ hC hDecode (good?_ext E) h0 h1
+
+
+
 
 end CatTailUCI

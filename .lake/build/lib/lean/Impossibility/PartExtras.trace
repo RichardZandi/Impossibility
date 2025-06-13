@@ -1,0 +1,25 @@
+{"log":
+ [{"message":
+   ".> LEAN_PATH=/Users/richardzandi/Impossibility/.lake/packages/Cli/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/batteries/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/Qq/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/aesop/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/importGraph/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/plausible/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/mathlib/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/godelnumbering/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/Kleene2/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/build/lib/lean /Users/richardzandi/.elan/toolchains/leanprover--lean4---v4.20.0/bin/lean /Users/richardzandi/Impossibility/Impossibility/PartExtras.lean -R /Users/richardzandi/Impossibility -o /Users/richardzandi/Impossibility/.lake/build/lib/lean/Impossibility/PartExtras.olean -i /Users/richardzandi/Impossibility/.lake/build/lib/lean/Impossibility/PartExtras.ilean -c /Users/richardzandi/Impossibility/.lake/build/ir/Impossibility/PartExtras.c --json",
+   "level": "trace"}],
+ "inputs":
+ [["Impossibility.PartExtras:deps",
+   [["deps",
+     [["Impossibility/Impossibility:extraDep",
+       [["@Impossibility:extraDep", "1723"]]],
+      ["import oleans",
+       [["Mathlib.Data.Part:olean",
+         [["Mathlib.Data.Part:deps", "16822641950211643996"],
+          ["/Users/richardzandi/Impossibility/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Part.olean",
+           "9193496371961511562"]]]]]]],
+    ["libs",
+     [["import dynlibs", "1723"],
+      ["package external libraries", "1723"],
+      ["module dynlibs", "1723"],
+      ["module plugins", "1723"]]]]],
+  ["Lean 4.20.0, commit 77cfc4d1a4f6ef6651792b781eaa6676b4f3f060",
+   "16311077432335102250"],
+  ["Module.leanArgs: #[]", "1723"],
+  ["/Users/richardzandi/Impossibility/Impossibility/PartExtras.lean",
+   "2260743676491160665"]],
+ "depHash": "17916537762697534451"}

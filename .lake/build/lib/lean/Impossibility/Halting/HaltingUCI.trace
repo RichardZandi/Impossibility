@@ -1,7 +1,34 @@
 {"log":
  [{"message":
-   ".> LEAN_PATH=/Users/richardzandi/Impossibility/.lake/packages/Cli/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/batteries/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/Qq/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/aesop/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/importGraph/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/plausible/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/mathlib/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/godelnumbering/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/Kleene2/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/UCI/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/build/lib/lean /Users/richardzandi/.elan/toolchains/leanprover--lean4---v4.20.0/bin/lean /Users/richardzandi/Impossibility/Impossibility/Halting/HaltingUCI.lean -R /Users/richardzandi/Impossibility -o /Users/richardzandi/Impossibility/.lake/build/lib/lean/Impossibility/Halting/HaltingUCI.olean -i /Users/richardzandi/Impossibility/.lake/build/lib/lean/Impossibility/Halting/HaltingUCI.ilean -c /Users/richardzandi/Impossibility/.lake/build/ir/Impossibility/Halting/HaltingUCI.c --json",
-   "level": "trace"}],
+   ".> LEAN_PATH=/Users/richardzandi/Impossibility/.lake/packages/Cli/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/batteries/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/Qq/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/aesop/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/importGraph/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/plausible/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/mathlib/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/godelnumbering/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/Kleene2/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/build/lib/lean /Users/richardzandi/.elan/toolchains/leanprover--lean4---v4.20.0/bin/lean /Users/richardzandi/Impossibility/Impossibility/Halting/HaltingUCI.lean -R /Users/richardzandi/Impossibility -o /Users/richardzandi/Impossibility/.lake/build/lib/lean/Impossibility/Halting/HaltingUCI.olean -i /Users/richardzandi/Impossibility/.lake/build/lib/lean/Impossibility/Halting/HaltingUCI.ilean -c /Users/richardzandi/Impossibility/.lake/build/ir/Impossibility/Halting/HaltingUCI.c --json",
+   "level": "trace"},
+  {"message":
+   "/Users/richardzandi/Impossibility/Impossibility/Halting/HaltingUCI.lean:135:4: try 'simp' instead of 'simpa'\nnote: this linter can be disabled with `set_option linter.unnecessarySimpa false`",
+   "level": "warning"},
+  {"message":
+   "/Users/richardzandi/Impossibility/Impossibility/Halting/HaltingUCI.lean:144:45: try 'simp' instead of 'simpa'\nnote: this linter can be disabled with `set_option linter.unnecessarySimpa false`",
+   "level": "warning"},
+  {"message":
+   "/Users/richardzandi/Impossibility/Impossibility/Halting/HaltingUCI.lean:147:8: try 'simp' instead of 'simpa'\nnote: this linter can be disabled with `set_option linter.unnecessarySimpa false`",
+   "level": "warning"},
+  {"message":
+   "/Users/richardzandi/Impossibility/Impossibility/Halting/HaltingUCI.lean:157:45: try 'simp' instead of 'simpa'\nnote: this linter can be disabled with `set_option linter.unnecessarySimpa false`",
+   "level": "warning"},
+  {"message":
+   "/Users/richardzandi/Impossibility/Impossibility/Halting/HaltingUCI.lean:159:8: try 'simp' instead of 'simpa'\nnote: this linter can be disabled with `set_option linter.unnecessarySimpa false`",
+   "level": "warning"},
+  {"message":
+   "/Users/richardzandi/Impossibility/Impossibility/Halting/HaltingUCI.lean:161:4: try 'simp' instead of 'simpa'\nnote: this linter can be disabled with `set_option linter.unnecessarySimpa false`",
+   "level": "warning"},
+  {"message":
+   "/Users/richardzandi/Impossibility/Impossibility/Halting/HaltingUCI.lean:183:2: try 'simp' instead of 'simpa'\nnote: this linter can be disabled with `set_option linter.unnecessarySimpa false`",
+   "level": "warning"},
+  {"message":
+   "/Users/richardzandi/Impossibility/Impossibility/Halting/HaltingUCI.lean:209:2: try 'simp' instead of 'simpa'\nnote: this linter can be disabled with `set_option linter.unnecessarySimpa false`",
+   "level": "warning"},
+  {"message":
+   "/Users/richardzandi/Impossibility/Impossibility/Halting/HaltingUCI.lean:239:13: try 'simp' instead of 'simpa'\nnote: this linter can be disabled with `set_option linter.unnecessarySimpa false`",
+   "level": "warning"}],
  "inputs":
  [["Impossibility.Halting.HaltingUCI:deps",
    [["deps",
@@ -20,6 +47,10 @@
          [["Mathlib.Data.Bool.Basic:deps", "705030180648738486"],
           ["/Users/richardzandi/Impossibility/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Bool/Basic.olean",
            "8605534428697544352"]]],
+        ["Mathlib.Computability.TuringMachine:olean",
+         [["Mathlib.Computability.TuringMachine:deps", "14337182541302098945"],
+          ["/Users/richardzandi/Impossibility/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Computability/TuringMachine.olean",
+           "11389200416704899441"]]],
         ["Godelnumbering.Godel:olean",
          [["Godelnumbering.Godel:deps", "8170280542398045373"],
           ["/Users/richardzandi/Impossibility/.lake/packages/godelnumbering/.lake/build/lib/lean/Godelnumbering/Godel.olean",
@@ -32,10 +63,23 @@
          [["Impossibility.Evolution:deps", "13775036624050319551"],
           ["/Users/richardzandi/Impossibility/.lake/build/lib/lean/Impossibility/Evolution.olean",
            "5793157259125889179"]]],
-        ["UCI.UCICore:olean",
-         [["UCI.UCICore:deps", "17910292096861591332"],
-          ["/Users/richardzandi/Impossibility/.lake/packages/UCI/.lake/build/lib/lean/UCI/UCICore.olean",
-           "17778821779233850707"]]]]]]],
+        ["Impossibility.Halting.HaltingEvolution:olean",
+         [["Impossibility.Halting.HaltingEvolution:deps",
+           "1257564160987349013"],
+          ["/Users/richardzandi/Impossibility/.lake/build/lib/lean/Impossibility/Halting/HaltingEvolution.olean",
+           "4569859408193955346"]]],
+        ["Impossibility.UCICoreTest:olean",
+         [["Impossibility.UCICoreTest:deps", "17910292096861591332"],
+          ["/Users/richardzandi/Impossibility/.lake/build/lib/lean/Impossibility/UCICoreTest.olean",
+           "514346849722448123"]]],
+        ["Kleene2.KleeneFix:olean",
+         [["Kleene2.KleeneFix:deps", "2093117061109296486"],
+          ["/Users/richardzandi/Impossibility/.lake/packages/Kleene2/.lake/build/lib/lean/Kleene2/KleeneFix.olean",
+           "10223511334262028492"]]],
+        ["Godelnumbering.Transport:olean",
+         [["Godelnumbering.Transport:deps", "5112432756966874172"],
+          ["/Users/richardzandi/Impossibility/.lake/packages/godelnumbering/.lake/build/lib/lean/Godelnumbering/Transport.olean",
+           "16495781264250435466"]]]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -45,5 +89,5 @@
    "16311077432335102250"],
   ["Module.leanArgs: #[]", "1723"],
   ["/Users/richardzandi/Impossibility/Impossibility/Halting/HaltingUCI.lean",
-   "16165651445249564750"]],
- "depHash": "3925661920313054270"}
+   "13132974764922251146"]],
+ "depHash": "692081013406372452"}
