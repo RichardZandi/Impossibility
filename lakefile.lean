@@ -16,7 +16,7 @@ require Kleene2 from
   git "https://github.com/RichardZandi/kleene2.git" @ "main"
 
 --require UCI from
- -- git "https://github.com/RichardZandi/Universal-Classification-Impossibility.git" @ "main"
+--  git "https://github.com/RichardZandi/Universal-Classification-Impossibility.git" @ "main"
 
 @[default_target]
 lean_lib Impossibility where
@@ -24,4 +24,9 @@ lean_lib Impossibility where
   `Impossibility.CatAndTail.CatTailWitness,`Impossibility.CatAndTail.CatTailUCI,
   `Impossibility.Halting.HaltingUCI,`Impossibility.Halting.HaltingEvolution,
   `Impossibility.PZI.PZIUCI,`Impossibility.PZI.PZIEvolution,
+  `Impossibility.EvolutionInstance,
+  `Impossibility.PrimcodableBasic,
   `Impossibility.UCICoreTest]
+
+-- `Impossibility.Arrow.ArrowTypes, `Impossibility.Arrow.ArrowAxioms,
+-- `Impossibility.Arrow.ArrowProof,  `Impossibility.Arrow.ArrowUCI,

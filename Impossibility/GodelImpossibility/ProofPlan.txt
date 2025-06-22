@@ -1,0 +1,308 @@
+# Gödel Impossibility via UCI – Lean 4 **Master Plan**
+
+This single document now contains **everything**:
+
+* **Directory layout & import graph** (quick orientation)
+* **Step‑by‑step work packages** – what goes in every file, typical LoC, key lemmas
+* **Difficulty ranking & tips** – where you’ll likely get stuck and how to dodge it
+* **Compilation order & lake commands** – no guessing
+
+Copy each header block into its file; Lean will compile top‑to‑bottom. Replace each `TODO`/`sorry` and you will have a **no‑axioms, community‑grade** first‑incompleteness theorem that ends with a **UCI diagonal punch‑line**.
+
+---
+
+## 0  Directory tree
+
+```text
+Godel/
+├─ Syntax/                 (re‑exports from mathlib – already exist)
+├─ Numbering/
+│   └─ SentenceNumbering.lean
+│
+├─ ProofSystem/
+│   ├─ Hilbert.lean         – STEP 1  (derivation rules + meta‑lemmas)
+│   └─ EncodeProof.lean     – STEP 2  (β list coder + primitive‑recursive `proofPred`)
+│
+├─ Soundness/
+│   └─ QModel.lean          – STEP 3  (standard ℕ‑model for Robinson Q)
+│
+└─ Incompleteness/
+    ├─ Diagonal.lean        – STEP 4  (Gödel sentence g₍Q₎)
+    └─ GodelUCI.lean        – STEP 5  (UCI contradiction – **no axioms**)
+```
+
+Add these files to `moreLeanFiles` in your `lakefile.lean`.
+
+---
+
+## 1  Import graph (acyclic)
+
+```
+Hilbert.lean
+├─> EncodeProof.lean
+│    └─>  primrec proofs, β‑lemmas
+│
+├─> QModel.lean
+│    └─> standard model uses derivations
+│
+EncodeProof + QModel
+├─> Diagonal.lean   (builds Gödel sentence)
+│
+Diagonal + QModel + EncodeProof
+├─> GodelUCI.lean   (final contradiction)
+```
+
+Lean builds ancestors first, so this order guarantees no cycles.
+
+---
+
+## 2  Header blocks for each file
+
+> Copy‑paste at the very top of each Lean file.
+
+### 2.1  `ProofSystem/Hilbert.lean`
+
+```lean
+import Mathlib.ModelTheory.Syntax
+```
+
+### 2.2  `ProofSystem/EncodeProof.lean`
+
+```lean
+import ProofSystem.Hilbert
+import Mathlib.Logic.Godel.GodelBetaFunction
+import Mathlib.Computability.Primrec
+import Mathlib.Data.List.Basic
+```
+
+### 2.3  `Soundness/QModel.lean`
+
+```lean
+import ProofSystem.Hilbert
+import Godel.Numbering.SentenceNumbering
+import Mathlib.ModelTheory.Syntax
+```
+
+### 2.4  `Incompleteness/Diagonal.lean`
+
+```lean
+import ProofSystem.Hilbert
+import ProofSystem.EncodeProof
+import Soundness.QModel
+import Godel.Numbering.SentenceNumbering
+import Mathlib.Logic.Godel.Diagonal
+```
+
+### 2.5  `Incompleteness/GodelUCI.lean`
+
+```lean
+import EvolutionInstance              -- total evaluator + ExtensionalF
+import Kleene.UCI.Classifier          -- uciGeneral engine
+import ProofSystem.EncodeProof        -- proofPred, Primrec lemma
+import Soundness.QModel               -- Provable_Q ⊤  /  ¬Provable_Q ⊥
+import Mathlib.Data.Bool.Basic        -- decide helpers
+import Godel.Numbering.SentenceNumbering
+```
+
+---
+
+## 3  Work packages & LoC estimates
+
+| Step | File                 | New LoC | Core deliverables                                                                                                                                                              |
+| ---- | -------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|  1   | **Hilbert.lean**     |  ≈350   | `deriv` inductive type (10 rules); structural lemmas (`weakening`, `subst`, `mp`, `gen`).  Provide `[Decidable (deriv Q φ)]`.                                                  |
+|  2   | **EncodeProof.lean** |  ≈450   | β‑coding of lists → `encodeProof`, `nthLine` + `Primrec`.  Rule checker `ruleOK`.  Bounded verifier `proofUpTo`.  Total primitive‑recursive `proofPred` + `primrec_proofPred`. |
+|  3   | **QModel.lean**      |  ≈120   | Interpret terms/sentences in ℕ; prove `deriv Q ⊤` and `¬deriv Q ⊥`.  Export `Provable_Q`.                                                                                      |
+|  4   | **Diagonal.lean**    |  ≈180   | Build Gödel sentence `g`.  Lemma `fixed_point : deriv Q g ↔ ¬deriv Q g`.  Define `numTrue`, `numFalse`.                                                                        |
+|  5   | **GodelUCI.lean**    |  ≈60    | Define oracle `P := decide ∘ proofPred`; prove `Computable P` & correctness via lemmas from previous steps.  Plug into `uciGeneral` to get `False` (no axioms).                |
+
+Total **≈1 160 LoC** new code.
+
+---
+
+## 4  Difficulty ranking & tips
+
+| Rank  | Block                                          | Why tough                                | Key tricks                                                                                            |
+| ----- | ---------------------------------------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| ★★★★★ | EncodeProof (rule checker + bounded recursion) | Need `Primrec` proofs; β indices fiddly. | Put *all* β lemmas under `@[simp]`; use pattern‑match not nested `if`; wrap recursion in `Part.getD`. |
+| ★★★☆☆ | Hilbert calculus                               | Many small lemma proofs.                 | One inductive proof for substitution covers most; tag axioms `[simp]`.                                |
+| ★★☆☆☆ | QModel (soundness)                             | Straightforward model.                   | Use `simp` and mathlib’s `Term.eval`.                                                                 |
+
+Build **EncodeProof last**?  Counter‑intuitively, finish Hilbert first— otherwise you have no rules to check.
+
+---
+
+## 5  Compile commands
+
+```bash
+lake clean          # wipe stale oleans if structure changes
+lake update         # latest mathlib4 snapshot
+lake build          # compiles entire tree respecting import graph
+```
+
+If Lean reports an *import cycle*, check headers against Section 2.
+
+---
+
+### End‑to‑end goal
+
+After completing all TODOs and removing every `sorry`,
+`Incompleteness/GodelUCI.lean` should end with:
+
+```lean
+theorem godel_impossibility : False := by
+  -- uciGeneral … (compiled)
+```
+
+This demonstrates:
+
+1. **Internal Gödel machinery** – β‑coding, primitive‑recursive proof predicate, Hilbert calculus, Robinson Q consistency.
+2. **UCI meta‑power** – same universal classifier diagonal used for Halting now collapses provability.
+
+Ready for mathlib‑4 review and a strong illustration of UCI’s scope.
+
+=====
+
+STEP 1 ProofSystem/Hilbert.lean (≈ 350 LoC, hardest to design)
+Type of derivations
+
+lean
+Copy
+Edit
+inductive deriv (T : Set (Sentence L)) : Sentence L → Prop
+| ax   {φ}   : φ ∈ T → deriv φ
+| mp   {φ ψ} : deriv (φ ⟶ ψ) → deriv φ → deriv ψ
+| gen  {φ}   : deriv φ → deriv (∀' φ)
+-- plus ≈7 axiom schemas: equality refl/subst, ⊤-intro, ⊥-elim, etc.
+Structural lemmas
+Weakening, substitution‐commutation, cut, etc. All are four-line
+inductions that Lean’s simp can discharge once you tag every axiom
+
+lean
+Copy
+Edit
+@[simp] lemma deriv_axiom₁ : deriv Q (φ ⟶ (ψ ⟶ φ)) := …
+Use Syntax.subst from mathlib for de Bruijn handling.
+
+Export list
+
+deriv_Q : def-alias for deriv Q
+
+modus_ponens, generalise helper lemmas
+
+[Decidable (deriv Q φ)] via classical choice (needed for decide later).
+
+STEP 2 ProofSystem/EncodeProof.lean (≈ 450 LoC, technical)
+Relies heavily on Mathlib.Logic.Godel.GodelBetaFunction.
+
+List coder
+
+lean
+Copy
+Edit
+def encodeProof  : List ℕ → ℕ := Nat.unbeta
+lemma primrec_encodeProof : Primrec encodeProof
+def nthLine (c i : ℕ) : ℕ := Nat.beta c i
+lemma primrec_nthLine     : Primrec (fun p : ℕ×ℕ => nthLine p.1 p.2)
+Primitive-recursive axiom test
+
+lean
+Copy
+Edit
+def isAxiom : ℕ → Bool :=   -- finite table lookup
+lemma primrec_isAxiom : Primrec isAxiom
+Primitive-recursive rule checker
+
+For each i: look at tags of nthLine c i, consult earlier lines via
+nthLine c j. Implement with bif combinators.
+
+lean
+Copy
+Edit
+def ruleOK (c i : ℕ) : Bool
+lemma primrec_ruleOK : Primrec (fun p : ℕ×ℕ => ruleOK p.1 p.2)
+Bounded verification
+
+Recursive Boolean proofUpTo c i:
+
+lean
+Copy
+Edit
+def proofUpTo : ℕ → ℕ → Bool
+lemma primrec_proofUpTo
+Total proof predicate
+
+lean
+Copy
+Edit
+def proofPred (c : ℕ) : Bool :=
+  decide (proofUpTo c c)     -- length ≤ code itself
+lemma primrec_proofPred : Primrec proofPred
+Soundness link
+
+lean
+Copy
+Edit
+lemma proofPred_sound :
+  ∀ c, proofPred c = true →
+    ∃ φ, deriv Q φ ∧ encodeSentence φ = nthLine c (length … - 1)
+You’ll use only the existence to map n back to a provable sentence.
+
+STEP 3 Soundness/QModel.lean (≈ 120 LoC)
+Interpret closed terms as naturals, formulas as booleans.
+
+Prove:
+
+lean
+Copy
+Edit
+lemma Q_proves_top  : deriv Q ⊤
+lemma Q_not_false   : ¬ deriv Q ⊥
+Both by one-pass induction over deriv.
+Export: Provable_Q : Sentence → Prop := deriv Q.
+
+STEP 4 Incompleteness/Diagonal.lean (≈ 180 LoC)
+open arithLang
+
+Build
+
+lean
+Copy
+Edit
+noncomputable def g : Sentence := diagonalize λ n, ¬ Provable_Q (decodeSentence n)
+lemma fixed_point : deriv Q g ↔ ¬ deriv Q g
+using mathlib’s diagonalize_spec.
+
+Provide Gödel numbers of ⊥ and ⊤:
+
+lean
+Copy
+Edit
+abbrev numFalse : ℕ := encodeSentence ⊥
+abbrev numTrue  : ℕ := encodeSentence ⊤
+STEP 5 Incompleteness/GodelUCI.lean (≈ 60 LoC)
+Exactly your Halting pattern, but all axioms are replaced by real
+lemmas:
+
+lean
+Copy
+Edit
+open GodelProof  -- imports proofPred + Primrec proofs
+open QModel      -- provability lemmas
+
+def P (n : ℕ) : Bool := decide (proofPred n)
+lemma P_computable : Computable P          := primrec_proofPred.to_comp
+lemma P_correct    : ∀ n, P n = true ↔ deriv Q (decodeSentence n) := …(by cases decide)
+lemma P_notFalse   : deriv Q ⊥ → False, from Q_not_false
+lemma P_true       : deriv Q ⊤,        from Q_proves_top
+Reuse good?, badCode, goodCode, extensionality with
+evalTotal 0, and invoke
+
+lean
+Copy
+Edit
+uciGeneral
+  (Φ := ⟨good?⟩) P_computable decodeSentence_computable good?_ext
+  badCode goodCode good?_bad good?_good
+gives False. That is the UCI-driven Gödel contradiction.
+

@@ -41,9 +41,9 @@
           ["/Users/richardzandi/Impossibility/.lake/build/lib/lean/Impossibility/CatAndTail/CatTailWitness.olean",
            "13392772285214148504"]]],
         ["Impossibility.UCICoreTest:olean",
-         [["Impossibility.UCICoreTest:deps", "17910292096861591332"],
+         [["Impossibility.UCICoreTest:deps", "15339495726177669244"],
           ["/Users/richardzandi/Impossibility/.lake/build/lib/lean/Impossibility/UCICoreTest.olean",
-           "514346849722448123"]]]]]]],
+           "4567674459377586587"]]]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -54,4 +54,4 @@
   ["Module.leanArgs: #[]", "1723"],
   ["/Users/richardzandi/Impossibility/Impossibility/CatAndTail/CatTailUCI.lean",
    "11784357624048962147"]],
- "depHash": "12706441436361445437"}
+ "depHash": "2237796120872183855"}

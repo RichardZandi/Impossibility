@@ -30,7 +30,6 @@ import Mathlib.Computability.TuringMachine
 import Godelnumbering.Godel
 import Godelnumbering.Instances
 import Impossibility.Evolution
---import Impossibility.PartExtras
 import Impossibility.Halting.HaltingEvolution           -- uses `E.reacts`
 import Impossibility.UCICoreTest
 import Kleene2.KleeneFix

@@ -1,0 +1,53 @@
+{"log":
+ [{"message":
+   ".> LEAN_PATH=/Users/richardzandi/Impossibility/.lake/packages/Cli/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/batteries/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/Qq/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/aesop/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/importGraph/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/plausible/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/mathlib/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/godelnumbering/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/Kleene2/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/build/lib/lean /Users/richardzandi/.elan/toolchains/leanprover--lean4---v4.20.0/bin/lean /Users/richardzandi/Impossibility/Impossibility/FirstOrderSemantics.lean -R /Users/richardzandi/Impossibility -o /Users/richardzandi/Impossibility/.lake/build/lib/lean/Impossibility/FirstOrderSemantics.olean -i /Users/richardzandi/Impossibility/.lake/build/lib/lean/Impossibility/FirstOrderSemantics.ilean -c /Users/richardzandi/Impossibility/.lake/build/ir/Impossibility/FirstOrderSemantics.c --json",
+   "level": "trace"},
+  {"message":
+   "/Users/richardzandi/Impossibility/Impossibility/FirstOrderSemantics.lean:70:0: instEncodableFunctionsLOfNatNat",
+   "level": "info"},
+  {"message":
+   "/Users/richardzandi/Impossibility/Impossibility/FirstOrderSemantics.lean:71:0: instEncodableRelationsLOfNatNat_2",
+   "level": "info"},
+  {"message":
+   "/Users/richardzandi/Impossibility/Impossibility/FirstOrderSemantics.lean:74:0: Encodable ((i : ℕ) × L.Functions i) : Type",
+   "level": "info"},
+  {"message":
+   "/Users/richardzandi/Impossibility/Impossibility/FirstOrderSemantics.lean:75:0: Encodable ((n : ℕ) × L.Relations n) : Type",
+   "level": "info"},
+  {"message":
+   "/Users/richardzandi/Impossibility/Impossibility/FirstOrderSemantics.lean:76:0: Encodable ((k : ℕ) × L.Term (Empty ⊕ Fin k)) : Type",
+   "level": "info"},
+  {"message":
+   "/Users/richardzandi/Impossibility/Impossibility/FirstOrderSemantics.lean:77:0: Encodable (Empty ⊕ Fin 0) : Type",
+   "level": "info"},
+  {"message":
+   "/Users/richardzandi/Impossibility/Impossibility/FirstOrderSemantics.lean:78:0: Encodable (L.Term (Empty ⊕ Fin 0)) : Type",
+   "level": "info"},
+  {"message":
+   "/Users/richardzandi/Impossibility/Impossibility/FirstOrderSemantics.lean:91:0: BoundedFormula : Language → Type u_3 → ℕ → Type (max u_1 u_2 u_3)",
+   "level": "info"}],
+ "inputs":
+ [["Impossibility.FirstOrderSemantics:deps",
+   [["deps",
+     [["Impossibility/Impossibility:extraDep",
+       [["@Impossibility:extraDep", "1723"]]],
+      ["import oleans",
+       [["Mathlib.ModelTheory.Syntax:olean",
+         [["Mathlib.ModelTheory.Syntax:deps", "2050370897133478173"],
+          ["/Users/richardzandi/Impossibility/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/ModelTheory/Syntax.olean",
+           "12282574392605800797"]]],
+        ["Mathlib.ModelTheory.Encoding:olean",
+         [["Mathlib.ModelTheory.Encoding:deps", "7205288224405635574"],
+          ["/Users/richardzandi/Impossibility/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/ModelTheory/Encoding.olean",
+           "6587073854676307474"]]]]]]],
+    ["libs",
+     [["import dynlibs", "1723"],
+      ["package external libraries", "1723"],
+      ["module dynlibs", "1723"],
+      ["module plugins", "1723"]]]]],
+  ["Lean 4.20.0, commit 77cfc4d1a4f6ef6651792b781eaa6676b4f3f060",
+   "16311077432335102250"],
+  ["Module.leanArgs: #[]", "1723"],
+  ["/Users/richardzandi/Impossibility/Impossibility/FirstOrderSemantics.lean",
+   "2924559015011505188"]],
+ "depHash": "446513800770396791"}

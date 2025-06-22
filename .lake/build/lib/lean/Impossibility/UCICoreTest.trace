@@ -34,9 +34,9 @@
           ["/Users/richardzandi/Impossibility/.lake/packages/Kleene2/.lake/build/lib/lean/Kleene2/KleeneFix.olean",
            "10223511334262028492"]]],
         ["Godelnumbering.Transport:olean",
-         [["Godelnumbering.Transport:deps", "5112432756966874172"],
+         [["Godelnumbering.Transport:deps", "2261694630007049426"],
           ["/Users/richardzandi/Impossibility/.lake/packages/godelnumbering/.lake/build/lib/lean/Godelnumbering/Transport.olean",
-           "16495781264250435466"]]]]]]],
+           "1195076510649732858"]]]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -47,4 +47,4 @@
   ["Module.leanArgs: #[]", "1723"],
   ["/Users/richardzandi/Impossibility/Impossibility/UCICoreTest.lean",
    "10631783943993747645"]],
- "depHash": "3636971477676185707"}
+ "depHash": "12859330924300800261"}
