@@ -1,6 +1,6 @@
 // Lean compiler output
 // Module: Impossibility.Arrow.ArrowTypes
-// Imports: Init Mathlib.Data.Fintype.Card Mathlib.Data.Fintype.Basic Mathlib.Data.Finset.Basic Mathlib.Data.Fintype.EquivFin
+// Imports: Init Mathlib.Data.Fintype.Card Mathlib.Data.Fintype.Basic Mathlib.Data.Finset.Basic Mathlib.Data.Fintype.EquivFin Impossibility.PreferenceCodec
 #include <lean/lean.h>
 #if defined(__clang__)
 #pragma clang diagnostic ignored "-Wunused-parameter"
@@ -75,6 +75,7 @@ lean_object* initialize_Mathlib_Data_Fintype_Card(uint8_t builtin, lean_object*)
 lean_object* initialize_Mathlib_Data_Fintype_Basic(uint8_t builtin, lean_object*);
 lean_object* initialize_Mathlib_Data_Finset_Basic(uint8_t builtin, lean_object*);
 lean_object* initialize_Mathlib_Data_Fintype_EquivFin(uint8_t builtin, lean_object*);
+lean_object* initialize_Impossibility_PreferenceCodec(uint8_t builtin, lean_object*);
 static bool _G_initialized = false;
 LEAN_EXPORT lean_object* initialize_Impossibility_Arrow_ArrowTypes(uint8_t builtin, lean_object* w) {
 lean_object * res;
@@ -93,6 +94,9 @@ res = initialize_Mathlib_Data_Finset_Basic(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 res = initialize_Mathlib_Data_Fintype_EquivFin(builtin, lean_io_mk_world());
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = initialize_Impossibility_PreferenceCodec(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 return lean_io_result_mk_ok(lean_box(0));

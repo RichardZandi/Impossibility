@@ -1,6 +1,6 @@
 // Lean compiler output
 // Module: Impossibility.PrimcodableBasic
-// Imports: Init Mathlib.Data.Fintype.Basic Mathlib.Algebra.Order.Ring.Nat Mathlib.Data.Finset.Basic Mathlib.Tactic.FinCases Mathlib.Data.Fintype.Prod Mathlib.Data.Nat.Pairing Mathlib.Tactic.DeriveFintype Mathlib.Tactic
+// Imports: Init Mathlib.Data.Fintype.Basic Mathlib.Tactic.FinCases Mathlib.Data.Fintype.Prod Mathlib.Data.Nat.Pairing Mathlib.Tactic Mathlib.Computability.Partrec Mathlib.Order.RelClasses
 #include <lean/lean.h>
 #if defined(__clang__)
 #pragma clang diagnostic ignored "-Wunused-parameter"
@@ -13,166 +13,100 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_decodeFin2Bool(lean_object*);
-static lean_object* l_MyCompute_Primcodable_bool___closed__1;
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__8;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_instDecidableEqPerson___boxed(lean_object*, lean_object*);
-LEAN_EXPORT uint8_t l_MyCompute_Primcodable_instDecidableEqPerson(uint8_t, uint8_t);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_instFood___lambda__1___boxed(lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_piFin2(lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_unpair___boxed(lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_decodeFin2Bool___elambda__1___rarg___boxed(lean_object*, lean_object*, lean_object*);
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_prod_match__2_splitter(lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_piFin2___rarg(lean_object*);
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__17;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_piFin2___rarg___lambda__3___boxed(lean_object*, lean_object*);
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__4;
-static lean_object* l_MyCompute_Primcodable_Food_enumList___closed__2;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_prod___rarg___lambda__1(lean_object*, lean_object*, lean_object*);
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__19;
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____boxed(lean_object*, lean_object*);
-uint8_t lean_nat_dec_le(lean_object*, lean_object*);
-static lean_object* l_MyCompute_Primcodable_instFood___closed__2;
+LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_piFin2_match__1_splitter___rarg(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_decodeFin2Bool___elambda__1___boxed(lean_object*);
+static lean_object* l_PrimBasic_Primcodable_fin___closed__1;
+static lean_object* l_PrimBasic_Primcodable_encodeFin2Bool___closed__2;
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_piFin2___rarg(lean_object*);
+LEAN_EXPORT lean_object* l_Array_foldrMUnsafe_fold___at_PrimBasic_Primcodable_encodeFin2Bool___spec__3(lean_object*, lean_object*, size_t, size_t, lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_nat;
+static lean_object* l_PrimBasic_Primcodable_nat___closed__3;
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_decodeFin2Bool(lean_object*);
 uint8_t lean_usize_dec_eq(size_t, size_t);
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__1;
-LEAN_EXPORT lean_object* l_Array_foldrMUnsafe_fold___at_MyCompute_Primcodable_encodeFin2Bool___spec__3(lean_object*, lean_object*, size_t, size_t, lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_instFintypeFood;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Food_toCtorIdx(uint8_t);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_option___rarg___lambda__2(lean_object*, lean_object*);
 lean_object* l_Nat_unpair(lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_nat;
-static lean_object* l_MyCompute_Primcodable_encodeFin2Bool___closed__2;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Person_toCtorIdx(uint8_t);
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__9;
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__20;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_instFood___lambda__1(uint8_t);
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__12;
-LEAN_EXPORT lean_object* l_Array_foldrMUnsafe_fold___at_MyCompute_Primcodable_encodeFin2Bool___spec__3___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__13;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_instFood___lambda__2(lean_object*);
-static lean_object* l_MyCompute_Primcodable_instFood___closed__3;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_bool___lambda__1(uint8_t);
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__5;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_bool___lambda__2(lean_object*);
-LEAN_EXPORT uint8_t l_MyCompute_Primcodable_Food_ofNat(lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_nat___lambda__1(lean_object*);
+LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_peel_match__1_splitter___rarg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_pair(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_piFin2_match__1_splitter___rarg___boxed(lean_object*, lean_object*, lean_object*);
+static lean_object* l_PrimBasic_Primcodable_nat___closed__1;
 lean_object* l_List_get___rarg(lean_object*, lean_object*);
-LEAN_EXPORT lean_object* l_Array_foldrMUnsafe_fold___at_MyCompute_Primcodable_encodeFin2Bool___spec__2___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_nat___lambda__1(lean_object*);
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__10;
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__12;
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_piFin2_match__1_splitter___rarg___boxed(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_pair___boxed(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_prod___rarg___lambda__2___boxed(lean_object*, lean_object*, lean_object*);
+static lean_object* l_PrimBasic_Primcodable_bool___closed__3;
+LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_prod_match__2_splitter(lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_ofEquiv___elambda__1___rarg(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_ofEquiv___rarg(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_option(lean_object*);
 size_t lean_usize_of_nat(lean_object*);
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__7;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_instFood;
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__10;
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_peel(lean_object*);
-static lean_object* l_MyCompute_Primcodable_nat___closed__1;
-uint8_t lean_nat_dec_eq(lean_object*, lean_object*);
-static lean_object* l_MyCompute_Primcodable_instFood___lambda__2___closed__2;
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_piFin2_match__1_splitter___rarg(lean_object*, lean_object*, lean_object*);
-lean_object* lean_nat_to_int(lean_object*);
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_peel_match__1_splitter(lean_object*, lean_object*);
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__15;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_p2f___boxed(lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_bool___lambda__2___boxed(lean_object*);
-static lean_object* l_MyCompute_Primcodable_instReprFood___closed__1;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_instFintypePerson;
-static lean_object* l_MyCompute_Primcodable_bool___closed__2;
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_prod(lean_object*, lean_object*);
+static lean_object* l_PrimBasic_Primcodable_option___rarg___lambda__2___closed__1;
+LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_prod_match__2_splitter___rarg(lean_object*, lean_object*);
+static lean_object* l_PrimBasic_Primcodable_nat___closed__2;
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_bool___lambda__2___boxed(lean_object*);
+static lean_object* l_PrimBasic_Primcodable_bool___lambda__2___closed__2;
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_decodeFin2Bool___elambda__1(lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_piFin2___rarg___lambda__2(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_piFin2_match__1_splitter(lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_decodeFin2Bool___elambda__1___rarg(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_prod___rarg___lambda__2(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_piFin2___rarg___lambda__2___boxed(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_foldrMUnsafe_fold___at_PrimBasic_Primcodable_encodeFin2Bool___spec__2(lean_object*, lean_object*, size_t, size_t, lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_prod___rarg(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_ofEquiv___elambda__2___rarg(lean_object*, lean_object*, lean_object*);
 lean_object* l_Nat_pair(lean_object*, lean_object*);
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306_(uint8_t, lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_encodeFin2Bool(lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_instReprFood;
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__14;
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__2;
-LEAN_EXPORT uint8_t l_MyCompute_Primcodable_p2f(uint8_t);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Person_noConfusion(lean_object*);
-static lean_object* l_MyCompute_Primcodable_instFood___lambda__2___closed__1;
+LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_peel_match__1_splitter(lean_object*, lean_object*);
+static lean_object* l_PrimBasic_Primcodable_bool___closed__2;
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_piFin2___rarg___lambda__3(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_fin___lambda__1___boxed(lean_object*);
 lean_object* l_List_lengthTRAux___rarg(lean_object*, lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Person_enumList;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_prod___rarg___lambda__2___boxed(lean_object*, lean_object*, lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_prod___rarg(lean_object*, lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_piFin2___rarg___lambda__3(lean_object*, lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_bool___lambda__1___boxed(lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Food_noConfusion(lean_object*);
-static lean_object* l_MyCompute_Primcodable_bool___closed__3;
-static lean_object* l_MyCompute_Primcodable_nat___closed__2;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_decodeFin2Bool___elambda__1(lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Food_toCtorIdx___boxed(lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_unpair(lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_instDecidableEqFood___boxed(lean_object*, lean_object*);
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_prod_match__2_splitter___rarg(lean_object*, lean_object*);
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__3;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Person_toCtorIdx___boxed(lean_object*);
-LEAN_EXPORT uint8_t l_MyCompute_Primcodable_Person_ofNat(lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Person_noConfusion___rarg___lambda__1___boxed(lean_object*);
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____boxed(lean_object*, lean_object*);
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_peel___rarg(lean_object*, lean_object*, lean_object*, lean_object*);
-static lean_object* l_MyCompute_Primcodable_nat___closed__3;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_piFin2___rarg___lambda__2(lean_object*, lean_object*, lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_pair(lean_object*, lean_object*);
-static lean_object* l_MyCompute_Primcodable_encodeFin2Bool___closed__1;
-LEAN_EXPORT uint8_t l_MyCompute_Primcodable_instDecidableEqFood(uint8_t, uint8_t);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_fin(lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_unpair___boxed(lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_ofEquiv___elambda__2(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_encodeFin2Bool(lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_piFin2(lean_object*);
+lean_object* l_Equiv_symm___elambda__2___rarg(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_option___rarg(lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_ofEquiv___elambda__1(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_prod___rarg___lambda__1(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_peel_match__1_splitter___rarg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_bool;
 uint8_t lean_nat_dec_eq(lean_object*, lean_object*);
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__18;
+LEAN_EXPORT lean_object* l_Array_foldrMUnsafe_fold___at_PrimBasic_Primcodable_encodeFin2Bool___spec__2___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 uint8_t lean_nat_dec_lt(lean_object*, lean_object*);
-static lean_object* l_MyCompute_Primcodable_Person_enumList___closed__2;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Food_noConfusion___rarg___boxed(lean_object*, lean_object*, lean_object*);
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_peel_match__1_splitter___rarg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_peel(lean_object*);
 lean_object* l_id___rarg___boxed(lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Person_noConfusion___rarg___boxed(lean_object*, lean_object*, lean_object*);
 lean_object* l_List_ofFn___rarg(lean_object*, lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Person_ofNat___boxed(lean_object*);
-static lean_object* l_MyCompute_Primcodable_instFood___closed__1;
-LEAN_EXPORT lean_object* l_Array_foldrMUnsafe_fold___at_MyCompute_Primcodable_encodeFin2Bool___spec__2(lean_object*, lean_object*, size_t, size_t, lean_object*);
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__16;
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__4;
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__5;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_piFin2___rarg___lambda__1(lean_object*, lean_object*);
-lean_object* l_Repr_addAppParen(lean_object*, lean_object*);
-static lean_object* l_MyCompute_Primcodable_bool___lambda__2___closed__1;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Food_noConfusion___rarg(uint8_t, uint8_t, lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_bool___lambda__2(lean_object*);
 lean_object* lean_nat_sub(lean_object*, lean_object*);
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__11;
-static lean_object* l_MyCompute_Primcodable_Food_enumList___closed__1;
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__6;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_decodeFin2Bool___elambda__1___rarg(lean_object*, lean_object*, lean_object*);
-static lean_object* l_MyCompute_Primcodable_Person_enumList___closed__1;
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_fin___lambda__2(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_unpair(lean_object*);
+static lean_object* l_PrimBasic_Primcodable_bool___closed__1;
 lean_object* l_List_reverse___rarg(lean_object*);
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_peel_match__1_splitter___rarg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Array_foldrMUnsafe_fold___at_PrimBasic_Primcodable_encodeFin2Bool___spec__3___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 size_t lean_usize_sub(size_t, size_t);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_option___rarg___lambda__2___boxed(lean_object*, lean_object*);
 lean_object* lean_array_mk(lean_object*);
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__7;
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_piFin2_match__1_splitter(lean_object*);
+LEAN_EXPORT lean_object* l_List_foldrTR___at_PrimBasic_Primcodable_encodeFin2Bool___spec__1(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_piFin2___rarg___lambda__3___boxed(lean_object*, lean_object*);
+static lean_object* l_PrimBasic_Primcodable_encodeFin2Bool___closed__1;
 lean_object* lean_array_uget(lean_object*, size_t);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_bool;
-LEAN_EXPORT lean_object* l_MyCompute_pair___boxed(lean_object*, lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_piFin2___rarg___lambda__2___boxed(lean_object*, lean_object*, lean_object*);
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__11;
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__3;
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__1;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_prod___rarg___lambda__2(lean_object*, lean_object*, lean_object*);
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__8;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_instReprPerson;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_instFood___lambda__2___boxed(lean_object*);
+static lean_object* l_PrimBasic_Primcodable_bool___lambda__2___closed__1;
 lean_object* l_List_finRange___lambda__1___boxed(lean_object*);
 lean_object* lean_array_get_size(lean_object*);
-static lean_object* l_MyCompute_Primcodable_Person_noConfusion___rarg___closed__1;
-LEAN_EXPORT lean_object* l_List_foldrTR___at_MyCompute_Primcodable_encodeFin2Bool___spec__1(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_decodeFin2Bool___elambda__1___rarg___boxed(lean_object*, lean_object*, lean_object*);
 uint8_t lean_nat_dec_le(lean_object*, lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Food_ofNat___boxed(lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_decodeFin2Bool___elambda__1___boxed(lean_object*);
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__9;
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720_(uint8_t, lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Person_noConfusion___rarg(uint8_t, uint8_t, lean_object*);
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__6;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_prod(lean_object*, lean_object*);
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_peel___at_MyCompute_Primcodable_decodeFin2Bool___spec__1(lean_object*, lean_object*, lean_object*);
-static lean_object* l_MyCompute_Primcodable_bool___lambda__2___closed__2;
-static lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__2;
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Person_noConfusion___rarg___lambda__1(lean_object*);
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Food_enumList;
-static lean_object* l_MyCompute_Primcodable_instReprPerson___closed__1;
-static lean_object* l_MyCompute_Primcodable_Person_enumList___closed__3;
-LEAN_EXPORT lean_object* l_MyCompute_pair(lean_object* x_1, lean_object* x_2) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_bool___lambda__1(uint8_t);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_ofEquiv(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_peel___rarg(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_peel___at_PrimBasic_Primcodable_decodeFin2Bool___spec__1(lean_object*, lean_object*, lean_object*);
+lean_object* lean_nat_add(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_fin___lambda__2___boxed(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_piFin2___rarg___lambda__1(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_bool___lambda__1___boxed(lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_option___rarg___lambda__1(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_fin___lambda__1(lean_object*);
+LEAN_EXPORT lean_object* l_PrimBasic_pair(lean_object* x_1, lean_object* x_2) {
 _start:
 {
 lean_object* x_3; 
@@ -180,17 +114,17 @@ x_3 = l_Nat_pair(x_1, x_2);
 return x_3;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_pair___boxed(lean_object* x_1, lean_object* x_2) {
+LEAN_EXPORT lean_object* l_PrimBasic_pair___boxed(lean_object* x_1, lean_object* x_2) {
 _start:
 {
 lean_object* x_3; 
-x_3 = l_MyCompute_pair(x_1, x_2);
+x_3 = l_PrimBasic_pair(x_1, x_2);
 lean_dec(x_2);
 lean_dec(x_1);
 return x_3;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_unpair(lean_object* x_1) {
+LEAN_EXPORT lean_object* l_PrimBasic_unpair(lean_object* x_1) {
 _start:
 {
 lean_object* x_2; 
@@ -198,16 +132,16 @@ x_2 = l_Nat_unpair(x_1);
 return x_2;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_unpair___boxed(lean_object* x_1) {
+LEAN_EXPORT lean_object* l_PrimBasic_unpair___boxed(lean_object* x_1) {
 _start:
 {
 lean_object* x_2; 
-x_2 = l_MyCompute_unpair(x_1);
+x_2 = l_PrimBasic_unpair(x_1);
 lean_dec(x_1);
 return x_2;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_nat___lambda__1(lean_object* x_1) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_nat___lambda__1(lean_object* x_1) {
 _start:
 {
 lean_object* x_2; 
@@ -216,7 +150,7 @@ lean_ctor_set(x_2, 0, x_1);
 return x_2;
 }
 }
-static lean_object* _init_l_MyCompute_Primcodable_nat___closed__1() {
+static lean_object* _init_l_PrimBasic_Primcodable_nat___closed__1() {
 _start:
 {
 lean_object* x_1; 
@@ -224,35 +158,35 @@ x_1 = lean_alloc_closure((void*)(l_id___rarg___boxed), 1, 0);
 return x_1;
 }
 }
-static lean_object* _init_l_MyCompute_Primcodable_nat___closed__2() {
+static lean_object* _init_l_PrimBasic_Primcodable_nat___closed__2() {
 _start:
 {
 lean_object* x_1; 
-x_1 = lean_alloc_closure((void*)(l_MyCompute_Primcodable_nat___lambda__1), 1, 0);
+x_1 = lean_alloc_closure((void*)(l_PrimBasic_Primcodable_nat___lambda__1), 1, 0);
 return x_1;
 }
 }
-static lean_object* _init_l_MyCompute_Primcodable_nat___closed__3() {
+static lean_object* _init_l_PrimBasic_Primcodable_nat___closed__3() {
 _start:
 {
 lean_object* x_1; lean_object* x_2; lean_object* x_3; 
-x_1 = l_MyCompute_Primcodable_nat___closed__1;
-x_2 = l_MyCompute_Primcodable_nat___closed__2;
+x_1 = l_PrimBasic_Primcodable_nat___closed__1;
+x_2 = l_PrimBasic_Primcodable_nat___closed__2;
 x_3 = lean_alloc_ctor(0, 2, 0);
 lean_ctor_set(x_3, 0, x_1);
 lean_ctor_set(x_3, 1, x_2);
 return x_3;
 }
 }
-static lean_object* _init_l_MyCompute_Primcodable_nat() {
+static lean_object* _init_l_PrimBasic_Primcodable_nat() {
 _start:
 {
 lean_object* x_1; 
-x_1 = l_MyCompute_Primcodable_nat___closed__3;
+x_1 = l_PrimBasic_Primcodable_nat___closed__3;
 return x_1;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_bool___lambda__1(uint8_t x_1) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_bool___lambda__1(uint8_t x_1) {
 _start:
 {
 if (x_1 == 0)
@@ -269,7 +203,7 @@ return x_3;
 }
 }
 }
-static lean_object* _init_l_MyCompute_Primcodable_bool___lambda__2___closed__1() {
+static lean_object* _init_l_PrimBasic_Primcodable_bool___lambda__2___closed__1() {
 _start:
 {
 uint8_t x_1; lean_object* x_2; lean_object* x_3; 
@@ -280,7 +214,7 @@ lean_ctor_set(x_3, 0, x_2);
 return x_3;
 }
 }
-static lean_object* _init_l_MyCompute_Primcodable_bool___lambda__2___closed__2() {
+static lean_object* _init_l_PrimBasic_Primcodable_bool___lambda__2___closed__2() {
 _start:
 {
 uint8_t x_1; lean_object* x_2; lean_object* x_3; 
@@ -291,7 +225,7 @@ lean_ctor_set(x_3, 0, x_2);
 return x_3;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_bool___lambda__2(lean_object* x_1) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_bool___lambda__2(lean_object* x_1) {
 _start:
 {
 lean_object* x_2; uint8_t x_3; 
@@ -311,74 +245,74 @@ return x_6;
 else
 {
 lean_object* x_7; 
-x_7 = l_MyCompute_Primcodable_bool___lambda__2___closed__1;
+x_7 = l_PrimBasic_Primcodable_bool___lambda__2___closed__1;
 return x_7;
 }
 }
 else
 {
 lean_object* x_8; 
-x_8 = l_MyCompute_Primcodable_bool___lambda__2___closed__2;
+x_8 = l_PrimBasic_Primcodable_bool___lambda__2___closed__2;
 return x_8;
 }
 }
 }
-static lean_object* _init_l_MyCompute_Primcodable_bool___closed__1() {
+static lean_object* _init_l_PrimBasic_Primcodable_bool___closed__1() {
 _start:
 {
 lean_object* x_1; 
-x_1 = lean_alloc_closure((void*)(l_MyCompute_Primcodable_bool___lambda__1___boxed), 1, 0);
+x_1 = lean_alloc_closure((void*)(l_PrimBasic_Primcodable_bool___lambda__1___boxed), 1, 0);
 return x_1;
 }
 }
-static lean_object* _init_l_MyCompute_Primcodable_bool___closed__2() {
+static lean_object* _init_l_PrimBasic_Primcodable_bool___closed__2() {
 _start:
 {
 lean_object* x_1; 
-x_1 = lean_alloc_closure((void*)(l_MyCompute_Primcodable_bool___lambda__2___boxed), 1, 0);
+x_1 = lean_alloc_closure((void*)(l_PrimBasic_Primcodable_bool___lambda__2___boxed), 1, 0);
 return x_1;
 }
 }
-static lean_object* _init_l_MyCompute_Primcodable_bool___closed__3() {
+static lean_object* _init_l_PrimBasic_Primcodable_bool___closed__3() {
 _start:
 {
 lean_object* x_1; lean_object* x_2; lean_object* x_3; 
-x_1 = l_MyCompute_Primcodable_bool___closed__1;
-x_2 = l_MyCompute_Primcodable_bool___closed__2;
+x_1 = l_PrimBasic_Primcodable_bool___closed__1;
+x_2 = l_PrimBasic_Primcodable_bool___closed__2;
 x_3 = lean_alloc_ctor(0, 2, 0);
 lean_ctor_set(x_3, 0, x_1);
 lean_ctor_set(x_3, 1, x_2);
 return x_3;
 }
 }
-static lean_object* _init_l_MyCompute_Primcodable_bool() {
+static lean_object* _init_l_PrimBasic_Primcodable_bool() {
 _start:
 {
 lean_object* x_1; 
-x_1 = l_MyCompute_Primcodable_bool___closed__3;
+x_1 = l_PrimBasic_Primcodable_bool___closed__3;
 return x_1;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_bool___lambda__1___boxed(lean_object* x_1) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_bool___lambda__1___boxed(lean_object* x_1) {
 _start:
 {
 uint8_t x_2; lean_object* x_3; 
 x_2 = lean_unbox(x_1);
 lean_dec(x_1);
-x_3 = l_MyCompute_Primcodable_bool___lambda__1(x_2);
+x_3 = l_PrimBasic_Primcodable_bool___lambda__1(x_2);
 return x_3;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_bool___lambda__2___boxed(lean_object* x_1) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_bool___lambda__2___boxed(lean_object* x_1) {
 _start:
 {
 lean_object* x_2; 
-x_2 = l_MyCompute_Primcodable_bool___lambda__2(x_1);
+x_2 = l_PrimBasic_Primcodable_bool___lambda__2(x_1);
 lean_dec(x_1);
 return x_2;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_prod___rarg___lambda__1(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_prod___rarg___lambda__1(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
 _start:
 {
 lean_object* x_4; lean_object* x_5; lean_object* x_6; lean_object* x_7; lean_object* x_8; lean_object* x_9; lean_object* x_10; 
@@ -401,7 +335,7 @@ lean_dec(x_6);
 return x_10;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_prod___rarg___lambda__2(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_prod___rarg___lambda__2(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
 _start:
 {
 lean_object* x_4; uint8_t x_5; 
@@ -535,16 +469,16 @@ return x_31;
 }
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_prod___rarg(lean_object* x_1, lean_object* x_2) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_prod___rarg(lean_object* x_1, lean_object* x_2) {
 _start:
 {
 lean_object* x_3; lean_object* x_4; lean_object* x_5; 
 lean_inc(x_2);
 lean_inc(x_1);
-x_3 = lean_alloc_closure((void*)(l_MyCompute_Primcodable_prod___rarg___lambda__1), 3, 2);
+x_3 = lean_alloc_closure((void*)(l_PrimBasic_Primcodable_prod___rarg___lambda__1), 3, 2);
 lean_closure_set(x_3, 0, x_1);
 lean_closure_set(x_3, 1, x_2);
-x_4 = lean_alloc_closure((void*)(l_MyCompute_Primcodable_prod___rarg___lambda__2___boxed), 3, 2);
+x_4 = lean_alloc_closure((void*)(l_PrimBasic_Primcodable_prod___rarg___lambda__2___boxed), 3, 2);
 lean_closure_set(x_4, 0, x_1);
 lean_closure_set(x_4, 1, x_2);
 x_5 = lean_alloc_ctor(0, 2, 0);
@@ -553,24 +487,24 @@ lean_ctor_set(x_5, 1, x_4);
 return x_5;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_prod(lean_object* x_1, lean_object* x_2) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_prod(lean_object* x_1, lean_object* x_2) {
 _start:
 {
 lean_object* x_3; 
-x_3 = lean_alloc_closure((void*)(l_MyCompute_Primcodable_prod___rarg), 2, 0);
+x_3 = lean_alloc_closure((void*)(l_PrimBasic_Primcodable_prod___rarg), 2, 0);
 return x_3;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_prod___rarg___lambda__2___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_prod___rarg___lambda__2___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
 _start:
 {
 lean_object* x_4; 
-x_4 = l_MyCompute_Primcodable_prod___rarg___lambda__2(x_1, x_2, x_3);
+x_4 = l_PrimBasic_Primcodable_prod___rarg___lambda__2(x_1, x_2, x_3);
 lean_dec(x_3);
 return x_4;
 }
 }
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_piFin2_match__1_splitter___rarg(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_piFin2_match__1_splitter___rarg(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
 _start:
 {
 lean_object* x_4; uint8_t x_5; 
@@ -588,26 +522,26 @@ return x_2;
 }
 }
 }
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_piFin2_match__1_splitter(lean_object* x_1) {
+LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_piFin2_match__1_splitter(lean_object* x_1) {
 _start:
 {
 lean_object* x_2; 
-x_2 = lean_alloc_closure((void*)(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_piFin2_match__1_splitter___rarg___boxed), 3, 0);
+x_2 = lean_alloc_closure((void*)(l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_piFin2_match__1_splitter___rarg___boxed), 3, 0);
 return x_2;
 }
 }
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_piFin2_match__1_splitter___rarg___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_piFin2_match__1_splitter___rarg___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
 _start:
 {
 lean_object* x_4; 
-x_4 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_piFin2_match__1_splitter___rarg(x_1, x_2, x_3);
+x_4 = l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_piFin2_match__1_splitter___rarg(x_1, x_2, x_3);
 lean_dec(x_3);
 lean_dec(x_2);
 lean_dec(x_1);
 return x_4;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_piFin2___rarg___lambda__1(lean_object* x_1, lean_object* x_2) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_piFin2___rarg___lambda__1(lean_object* x_1, lean_object* x_2) {
 _start:
 {
 lean_object* x_3; lean_object* x_4; lean_object* x_5; lean_object* x_6; lean_object* x_7; lean_object* x_8; lean_object* x_9; lean_object* x_10; 
@@ -628,7 +562,7 @@ lean_dec(x_6);
 return x_10;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_piFin2___rarg___lambda__2(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_piFin2___rarg___lambda__2(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
 _start:
 {
 lean_object* x_4; uint8_t x_5; 
@@ -646,7 +580,7 @@ return x_2;
 }
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_piFin2___rarg___lambda__3(lean_object* x_1, lean_object* x_2) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_piFin2___rarg___lambda__3(lean_object* x_1, lean_object* x_2) {
 _start:
 {
 lean_object* x_3; lean_object* x_4; lean_object* x_5; lean_object* x_6; lean_object* x_7; 
@@ -691,7 +625,7 @@ if (x_12 == 0)
 {
 lean_object* x_13; lean_object* x_14; 
 x_13 = lean_ctor_get(x_10, 0);
-x_14 = lean_alloc_closure((void*)(l_MyCompute_Primcodable_piFin2___rarg___lambda__2___boxed), 3, 2);
+x_14 = lean_alloc_closure((void*)(l_PrimBasic_Primcodable_piFin2___rarg___lambda__2___boxed), 3, 2);
 lean_closure_set(x_14, 0, x_13);
 lean_closure_set(x_14, 1, x_9);
 lean_ctor_set(x_10, 0, x_14);
@@ -703,7 +637,7 @@ lean_object* x_15; lean_object* x_16; lean_object* x_17;
 x_15 = lean_ctor_get(x_10, 0);
 lean_inc(x_15);
 lean_dec(x_10);
-x_16 = lean_alloc_closure((void*)(l_MyCompute_Primcodable_piFin2___rarg___lambda__2___boxed), 3, 2);
+x_16 = lean_alloc_closure((void*)(l_PrimBasic_Primcodable_piFin2___rarg___lambda__2___boxed), 3, 2);
 lean_closure_set(x_16, 0, x_15);
 lean_closure_set(x_16, 1, x_9);
 x_17 = lean_alloc_ctor(1, 1, 0);
@@ -714,14 +648,14 @@ return x_17;
 }
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_piFin2___rarg(lean_object* x_1) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_piFin2___rarg(lean_object* x_1) {
 _start:
 {
 lean_object* x_2; lean_object* x_3; lean_object* x_4; 
 lean_inc(x_1);
-x_2 = lean_alloc_closure((void*)(l_MyCompute_Primcodable_piFin2___rarg___lambda__1), 2, 1);
+x_2 = lean_alloc_closure((void*)(l_PrimBasic_Primcodable_piFin2___rarg___lambda__1), 2, 1);
 lean_closure_set(x_2, 0, x_1);
-x_3 = lean_alloc_closure((void*)(l_MyCompute_Primcodable_piFin2___rarg___lambda__3___boxed), 2, 1);
+x_3 = lean_alloc_closure((void*)(l_PrimBasic_Primcodable_piFin2___rarg___lambda__3___boxed), 2, 1);
 lean_closure_set(x_3, 0, x_1);
 x_4 = lean_alloc_ctor(0, 2, 0);
 lean_ctor_set(x_4, 0, x_2);
@@ -729,35 +663,35 @@ lean_ctor_set(x_4, 1, x_3);
 return x_4;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_piFin2(lean_object* x_1) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_piFin2(lean_object* x_1) {
 _start:
 {
 lean_object* x_2; 
-x_2 = lean_alloc_closure((void*)(l_MyCompute_Primcodable_piFin2___rarg), 1, 0);
+x_2 = lean_alloc_closure((void*)(l_PrimBasic_Primcodable_piFin2___rarg), 1, 0);
 return x_2;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_piFin2___rarg___lambda__2___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_piFin2___rarg___lambda__2___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
 _start:
 {
 lean_object* x_4; 
-x_4 = l_MyCompute_Primcodable_piFin2___rarg___lambda__2(x_1, x_2, x_3);
+x_4 = l_PrimBasic_Primcodable_piFin2___rarg___lambda__2(x_1, x_2, x_3);
 lean_dec(x_3);
 lean_dec(x_2);
 lean_dec(x_1);
 return x_4;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_piFin2___rarg___lambda__3___boxed(lean_object* x_1, lean_object* x_2) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_piFin2___rarg___lambda__3___boxed(lean_object* x_1, lean_object* x_2) {
 _start:
 {
 lean_object* x_3; 
-x_3 = l_MyCompute_Primcodable_piFin2___rarg___lambda__3(x_1, x_2);
+x_3 = l_PrimBasic_Primcodable_piFin2___rarg___lambda__3(x_1, x_2);
 lean_dec(x_2);
 return x_3;
 }
 }
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_peel___rarg(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
+LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_peel___rarg(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
 _start:
 {
 lean_object* x_5; uint8_t x_6; 
@@ -855,15 +789,15 @@ return x_26;
 }
 }
 }
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_peel(lean_object* x_1) {
+LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_peel(lean_object* x_1) {
 _start:
 {
 lean_object* x_2; 
-x_2 = lean_alloc_closure((void*)(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_peel___rarg), 4, 0);
+x_2 = lean_alloc_closure((void*)(l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_peel___rarg), 4, 0);
 return x_2;
 }
 }
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_peel_match__1_splitter___rarg(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5) {
+LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_peel_match__1_splitter___rarg(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5) {
 _start:
 {
 lean_object* x_6; uint8_t x_7; 
@@ -887,24 +821,24 @@ return x_11;
 }
 }
 }
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_peel_match__1_splitter(lean_object* x_1, lean_object* x_2) {
+LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_peel_match__1_splitter(lean_object* x_1, lean_object* x_2) {
 _start:
 {
 lean_object* x_3; 
-x_3 = lean_alloc_closure((void*)(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_peel_match__1_splitter___rarg___boxed), 5, 0);
+x_3 = lean_alloc_closure((void*)(l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_peel_match__1_splitter___rarg___boxed), 5, 0);
 return x_3;
 }
 }
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_peel_match__1_splitter___rarg___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5) {
+LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_peel_match__1_splitter___rarg___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5) {
 _start:
 {
 lean_object* x_6; 
-x_6 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_peel_match__1_splitter___rarg(x_1, x_2, x_3, x_4, x_5);
+x_6 = l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_peel_match__1_splitter___rarg(x_1, x_2, x_3, x_4, x_5);
 lean_dec(x_2);
 return x_6;
 }
 }
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_prod_match__2_splitter___rarg(lean_object* x_1, lean_object* x_2) {
+LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_prod_match__2_splitter___rarg(lean_object* x_1, lean_object* x_2) {
 _start:
 {
 lean_object* x_3; lean_object* x_4; lean_object* x_5; 
@@ -917,15 +851,15 @@ x_5 = lean_apply_2(x_2, x_3, x_4);
 return x_5;
 }
 }
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_prod_match__2_splitter(lean_object* x_1) {
+LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_prod_match__2_splitter(lean_object* x_1) {
 _start:
 {
 lean_object* x_2; 
-x_2 = lean_alloc_closure((void*)(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_prod_match__2_splitter___rarg), 2, 0);
+x_2 = lean_alloc_closure((void*)(l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_prod_match__2_splitter___rarg), 2, 0);
 return x_2;
 }
 }
-LEAN_EXPORT lean_object* l_Array_foldrMUnsafe_fold___at_MyCompute_Primcodable_encodeFin2Bool___spec__2(lean_object* x_1, lean_object* x_2, size_t x_3, size_t x_4, lean_object* x_5) {
+LEAN_EXPORT lean_object* l_Array_foldrMUnsafe_fold___at_PrimBasic_Primcodable_encodeFin2Bool___spec__2(lean_object* x_1, lean_object* x_2, size_t x_3, size_t x_4, lean_object* x_5) {
 _start:
 {
 uint8_t x_6; 
@@ -968,7 +902,7 @@ return x_5;
 }
 }
 }
-LEAN_EXPORT lean_object* l_Array_foldrMUnsafe_fold___at_MyCompute_Primcodable_encodeFin2Bool___spec__3(lean_object* x_1, lean_object* x_2, size_t x_3, size_t x_4, lean_object* x_5) {
+LEAN_EXPORT lean_object* l_Array_foldrMUnsafe_fold___at_PrimBasic_Primcodable_encodeFin2Bool___spec__3(lean_object* x_1, lean_object* x_2, size_t x_3, size_t x_4, lean_object* x_5) {
 _start:
 {
 uint8_t x_6; 
@@ -1011,7 +945,7 @@ return x_5;
 }
 }
 }
-LEAN_EXPORT lean_object* l_List_foldrTR___at_MyCompute_Primcodable_encodeFin2Bool___spec__1(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+LEAN_EXPORT lean_object* l_List_foldrTR___at_PrimBasic_Primcodable_encodeFin2Bool___spec__1(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
 _start:
 {
 lean_object* x_4; lean_object* x_5; uint8_t x_6; 
@@ -1036,7 +970,7 @@ size_t x_9; size_t x_10; lean_object* x_11;
 x_9 = lean_usize_of_nat(x_5);
 lean_dec(x_5);
 x_10 = 0;
-x_11 = l_Array_foldrMUnsafe_fold___at_MyCompute_Primcodable_encodeFin2Bool___spec__2(x_1, x_4, x_9, x_10, x_2);
+x_11 = l_Array_foldrMUnsafe_fold___at_PrimBasic_Primcodable_encodeFin2Bool___spec__2(x_1, x_4, x_9, x_10, x_2);
 lean_dec(x_4);
 return x_11;
 }
@@ -1059,14 +993,14 @@ size_t x_14; size_t x_15; lean_object* x_16;
 x_14 = lean_usize_of_nat(x_5);
 lean_dec(x_5);
 x_15 = 0;
-x_16 = l_Array_foldrMUnsafe_fold___at_MyCompute_Primcodable_encodeFin2Bool___spec__3(x_1, x_4, x_14, x_15, x_2);
+x_16 = l_Array_foldrMUnsafe_fold___at_PrimBasic_Primcodable_encodeFin2Bool___spec__3(x_1, x_4, x_14, x_15, x_2);
 lean_dec(x_4);
 return x_16;
 }
 }
 }
 }
-static lean_object* _init_l_MyCompute_Primcodable_encodeFin2Bool___closed__1() {
+static lean_object* _init_l_PrimBasic_Primcodable_encodeFin2Bool___closed__1() {
 _start:
 {
 lean_object* x_1; 
@@ -1074,27 +1008,27 @@ x_1 = lean_alloc_closure((void*)(l_List_finRange___lambda__1___boxed), 1, 0);
 return x_1;
 }
 }
-static lean_object* _init_l_MyCompute_Primcodable_encodeFin2Bool___closed__2() {
+static lean_object* _init_l_PrimBasic_Primcodable_encodeFin2Bool___closed__2() {
 _start:
 {
 lean_object* x_1; lean_object* x_2; lean_object* x_3; 
 x_1 = lean_unsigned_to_nat(2u);
-x_2 = l_MyCompute_Primcodable_encodeFin2Bool___closed__1;
+x_2 = l_PrimBasic_Primcodable_encodeFin2Bool___closed__1;
 x_3 = l_List_ofFn___rarg(x_1, x_2);
 return x_3;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_encodeFin2Bool(lean_object* x_1) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_encodeFin2Bool(lean_object* x_1) {
 _start:
 {
 lean_object* x_2; lean_object* x_3; lean_object* x_4; 
 x_2 = lean_unsigned_to_nat(0u);
-x_3 = l_MyCompute_Primcodable_encodeFin2Bool___closed__2;
-x_4 = l_List_foldrTR___at_MyCompute_Primcodable_encodeFin2Bool___spec__1(x_1, x_2, x_3);
+x_3 = l_PrimBasic_Primcodable_encodeFin2Bool___closed__2;
+x_4 = l_List_foldrTR___at_PrimBasic_Primcodable_encodeFin2Bool___spec__1(x_1, x_2, x_3);
 return x_4;
 }
 }
-LEAN_EXPORT lean_object* l_Array_foldrMUnsafe_fold___at_MyCompute_Primcodable_encodeFin2Bool___spec__2___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5) {
+LEAN_EXPORT lean_object* l_Array_foldrMUnsafe_fold___at_PrimBasic_Primcodable_encodeFin2Bool___spec__2___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5) {
 _start:
 {
 size_t x_6; size_t x_7; lean_object* x_8; 
@@ -1102,12 +1036,12 @@ x_6 = lean_unbox_usize(x_3);
 lean_dec(x_3);
 x_7 = lean_unbox_usize(x_4);
 lean_dec(x_4);
-x_8 = l_Array_foldrMUnsafe_fold___at_MyCompute_Primcodable_encodeFin2Bool___spec__2(x_1, x_2, x_6, x_7, x_5);
+x_8 = l_Array_foldrMUnsafe_fold___at_PrimBasic_Primcodable_encodeFin2Bool___spec__2(x_1, x_2, x_6, x_7, x_5);
 lean_dec(x_2);
 return x_8;
 }
 }
-LEAN_EXPORT lean_object* l_Array_foldrMUnsafe_fold___at_MyCompute_Primcodable_encodeFin2Bool___spec__3___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5) {
+LEAN_EXPORT lean_object* l_Array_foldrMUnsafe_fold___at_PrimBasic_Primcodable_encodeFin2Bool___spec__3___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5) {
 _start:
 {
 size_t x_6; size_t x_7; lean_object* x_8; 
@@ -1115,12 +1049,12 @@ x_6 = lean_unbox_usize(x_3);
 lean_dec(x_3);
 x_7 = lean_unbox_usize(x_4);
 lean_dec(x_4);
-x_8 = l_Array_foldrMUnsafe_fold___at_MyCompute_Primcodable_encodeFin2Bool___spec__3(x_1, x_2, x_6, x_7, x_5);
+x_8 = l_Array_foldrMUnsafe_fold___at_PrimBasic_Primcodable_encodeFin2Bool___spec__3(x_1, x_2, x_6, x_7, x_5);
 lean_dec(x_2);
 return x_8;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_decodeFin2Bool___elambda__1___rarg(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_decodeFin2Bool___elambda__1___rarg(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
 _start:
 {
 lean_object* x_4; 
@@ -1128,15 +1062,15 @@ x_4 = l_List_get___rarg(x_1, x_3);
 return x_4;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_decodeFin2Bool___elambda__1(lean_object* x_1) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_decodeFin2Bool___elambda__1(lean_object* x_1) {
 _start:
 {
 lean_object* x_2; 
-x_2 = lean_alloc_closure((void*)(l_MyCompute_Primcodable_decodeFin2Bool___elambda__1___rarg___boxed), 3, 0);
+x_2 = lean_alloc_closure((void*)(l_PrimBasic_Primcodable_decodeFin2Bool___elambda__1___rarg___boxed), 3, 0);
 return x_2;
 }
 }
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_peel___at_MyCompute_Primcodable_decodeFin2Bool___spec__1(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_peel___at_PrimBasic_Primcodable_decodeFin2Bool___spec__1(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
 _start:
 {
 lean_object* x_4; uint8_t x_5; 
@@ -1265,13 +1199,13 @@ return x_34;
 }
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_decodeFin2Bool(lean_object* x_1) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_decodeFin2Bool(lean_object* x_1) {
 _start:
 {
 lean_object* x_2; lean_object* x_3; lean_object* x_4; 
 x_2 = lean_box(0);
 x_3 = lean_unsigned_to_nat(2u);
-x_4 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_peel___at_MyCompute_Primcodable_decodeFin2Bool___spec__1(x_1, x_3, x_2);
+x_4 = l___private_Impossibility_PrimcodableBasic_0__PrimBasic_Primcodable_peel___at_PrimBasic_Primcodable_decodeFin2Bool___spec__1(x_1, x_3, x_2);
 if (lean_obj_tag(x_4) == 0)
 {
 lean_object* x_5; 
@@ -1302,7 +1236,7 @@ return x_12;
 else
 {
 lean_object* x_13; 
-x_13 = lean_alloc_closure((void*)(l_MyCompute_Primcodable_decodeFin2Bool___elambda__1___rarg___boxed), 3, 2);
+x_13 = lean_alloc_closure((void*)(l_PrimBasic_Primcodable_decodeFin2Bool___elambda__1___rarg___boxed), 3, 2);
 lean_closure_set(x_13, 0, x_8);
 lean_closure_set(x_13, 1, x_10);
 lean_ctor_set(x_4, 0, x_13);
@@ -1330,7 +1264,7 @@ return x_19;
 else
 {
 lean_object* x_20; lean_object* x_21; 
-x_20 = lean_alloc_closure((void*)(l_MyCompute_Primcodable_decodeFin2Bool___elambda__1___rarg___boxed), 3, 2);
+x_20 = lean_alloc_closure((void*)(l_PrimBasic_Primcodable_decodeFin2Bool___elambda__1___rarg___boxed), 3, 2);
 lean_closure_set(x_20, 0, x_15);
 lean_closure_set(x_20, 1, x_17);
 x_21 = lean_alloc_ctor(1, 1, 0);
@@ -1341,1065 +1275,325 @@ return x_21;
 }
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_decodeFin2Bool___elambda__1___rarg___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_decodeFin2Bool___elambda__1___rarg___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
 _start:
 {
 lean_object* x_4; 
-x_4 = l_MyCompute_Primcodable_decodeFin2Bool___elambda__1___rarg(x_1, x_2, x_3);
+x_4 = l_PrimBasic_Primcodable_decodeFin2Bool___elambda__1___rarg(x_1, x_2, x_3);
 lean_dec(x_2);
 lean_dec(x_1);
 return x_4;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_decodeFin2Bool___elambda__1___boxed(lean_object* x_1) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_decodeFin2Bool___elambda__1___boxed(lean_object* x_1) {
 _start:
 {
 lean_object* x_2; 
-x_2 = l_MyCompute_Primcodable_decodeFin2Bool___elambda__1(x_1);
+x_2 = l_PrimBasic_Primcodable_decodeFin2Bool___elambda__1(x_1);
 lean_dec(x_1);
 return x_2;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Person_toCtorIdx(uint8_t x_1) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_option___rarg___lambda__1(lean_object* x_1, lean_object* x_2) {
 _start:
 {
-switch (x_1) {
-case 0:
-{
-lean_object* x_2; 
-x_2 = lean_unsigned_to_nat(0u);
-return x_2;
-}
-case 1:
+if (lean_obj_tag(x_2) == 0)
 {
 lean_object* x_3; 
-x_3 = lean_unsigned_to_nat(1u);
+lean_dec(x_1);
+x_3 = lean_unsigned_to_nat(0u);
 return x_3;
 }
-default: 
+else
 {
-lean_object* x_4; 
-x_4 = lean_unsigned_to_nat(2u);
+lean_object* x_4; lean_object* x_5; lean_object* x_6; lean_object* x_7; lean_object* x_8; 
+x_4 = lean_ctor_get(x_2, 0);
+lean_inc(x_4);
+lean_dec(x_2);
+x_5 = lean_ctor_get(x_1, 0);
+lean_inc(x_5);
+lean_dec(x_1);
+x_6 = lean_apply_1(x_5, x_4);
+x_7 = lean_unsigned_to_nat(1u);
+x_8 = lean_nat_add(x_6, x_7);
+lean_dec(x_6);
+return x_8;
+}
+}
+}
+static lean_object* _init_l_PrimBasic_Primcodable_option___rarg___lambda__2___closed__1() {
+_start:
+{
+lean_object* x_1; lean_object* x_2; 
+x_1 = lean_box(0);
+x_2 = lean_alloc_ctor(1, 1, 0);
+lean_ctor_set(x_2, 0, x_1);
+return x_2;
+}
+}
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_option___rarg___lambda__2(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; uint8_t x_4; 
+x_3 = lean_unsigned_to_nat(0u);
+x_4 = lean_nat_dec_eq(x_2, x_3);
+if (x_4 == 0)
+{
+lean_object* x_5; lean_object* x_6; lean_object* x_7; lean_object* x_8; 
+x_5 = lean_unsigned_to_nat(1u);
+x_6 = lean_nat_sub(x_2, x_5);
+x_7 = lean_ctor_get(x_1, 1);
+lean_inc(x_7);
+lean_dec(x_1);
+x_8 = lean_apply_1(x_7, x_6);
+if (lean_obj_tag(x_8) == 0)
+{
+lean_object* x_9; 
+x_9 = lean_box(0);
+return x_9;
+}
+else
+{
+uint8_t x_10; 
+x_10 = !lean_is_exclusive(x_8);
+if (x_10 == 0)
+{
+lean_object* x_11; 
+x_11 = lean_alloc_ctor(1, 1, 0);
+lean_ctor_set(x_11, 0, x_8);
+return x_11;
+}
+else
+{
+lean_object* x_12; lean_object* x_13; lean_object* x_14; 
+x_12 = lean_ctor_get(x_8, 0);
+lean_inc(x_12);
+lean_dec(x_8);
+x_13 = lean_alloc_ctor(1, 1, 0);
+lean_ctor_set(x_13, 0, x_12);
+x_14 = lean_alloc_ctor(1, 1, 0);
+lean_ctor_set(x_14, 0, x_13);
+return x_14;
+}
+}
+}
+else
+{
+lean_object* x_15; 
+lean_dec(x_1);
+x_15 = l_PrimBasic_Primcodable_option___rarg___lambda__2___closed__1;
+return x_15;
+}
+}
+}
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_option___rarg(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; lean_object* x_3; lean_object* x_4; 
+lean_inc(x_1);
+x_2 = lean_alloc_closure((void*)(l_PrimBasic_Primcodable_option___rarg___lambda__1), 2, 1);
+lean_closure_set(x_2, 0, x_1);
+x_3 = lean_alloc_closure((void*)(l_PrimBasic_Primcodable_option___rarg___lambda__2___boxed), 2, 1);
+lean_closure_set(x_3, 0, x_1);
+x_4 = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(x_4, 0, x_2);
+lean_ctor_set(x_4, 1, x_3);
 return x_4;
 }
 }
-}
-}
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Person_toCtorIdx___boxed(lean_object* x_1) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_option(lean_object* x_1) {
 _start:
 {
-uint8_t x_2; lean_object* x_3; 
-x_2 = lean_unbox(x_1);
-lean_dec(x_1);
-x_3 = l_MyCompute_Primcodable_Person_toCtorIdx(x_2);
+lean_object* x_2; 
+x_2 = lean_alloc_closure((void*)(l_PrimBasic_Primcodable_option___rarg), 1, 0);
+return x_2;
+}
+}
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_option___rarg___lambda__2___boxed(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; 
+x_3 = l_PrimBasic_Primcodable_option___rarg___lambda__2(x_1, x_2);
+lean_dec(x_2);
 return x_3;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Person_noConfusion___rarg___lambda__1(lean_object* x_1) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_fin___lambda__1(lean_object* x_1) {
 _start:
 {
 lean_inc(x_1);
 return x_1;
 }
 }
-static lean_object* _init_l_MyCompute_Primcodable_Person_noConfusion___rarg___closed__1() {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_fin___lambda__2(lean_object* x_1, lean_object* x_2) {
 _start:
 {
-lean_object* x_1; 
-x_1 = lean_alloc_closure((void*)(l_MyCompute_Primcodable_Person_noConfusion___rarg___lambda__1___boxed), 1, 0);
-return x_1;
-}
-}
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Person_noConfusion___rarg(uint8_t x_1, uint8_t x_2, lean_object* x_3) {
-_start:
+uint8_t x_3; 
+x_3 = lean_nat_dec_lt(x_2, x_1);
+if (x_3 == 0)
 {
 lean_object* x_4; 
-x_4 = l_MyCompute_Primcodable_Person_noConfusion___rarg___closed__1;
-return x_4;
-}
-}
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Person_noConfusion(lean_object* x_1) {
-_start:
-{
-lean_object* x_2; 
-x_2 = lean_alloc_closure((void*)(l_MyCompute_Primcodable_Person_noConfusion___rarg___boxed), 3, 0);
-return x_2;
-}
-}
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Person_noConfusion___rarg___lambda__1___boxed(lean_object* x_1) {
-_start:
-{
-lean_object* x_2; 
-x_2 = l_MyCompute_Primcodable_Person_noConfusion___rarg___lambda__1(x_1);
-lean_dec(x_1);
-return x_2;
-}
-}
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Person_noConfusion___rarg___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
-_start:
-{
-uint8_t x_4; uint8_t x_5; lean_object* x_6; 
-x_4 = lean_unbox(x_1);
-lean_dec(x_1);
-x_5 = lean_unbox(x_2);
 lean_dec(x_2);
-x_6 = l_MyCompute_Primcodable_Person_noConfusion___rarg(x_4, x_5, x_3);
-return x_6;
-}
-}
-LEAN_EXPORT uint8_t l_MyCompute_Primcodable_Person_ofNat(lean_object* x_1) {
-_start:
-{
-lean_object* x_2; uint8_t x_3; 
-x_2 = lean_unsigned_to_nat(1u);
-x_3 = lean_nat_dec_le(x_2, x_1);
-if (x_3 == 0)
-{
-uint8_t x_4; 
-x_4 = 0;
+x_4 = lean_box(0);
 return x_4;
 }
 else
 {
-uint8_t x_5; 
-x_5 = lean_nat_dec_eq(x_1, x_2);
-if (x_5 == 0)
-{
-uint8_t x_6; 
-x_6 = 2;
-return x_6;
-}
-else
-{
-uint8_t x_7; 
-x_7 = 1;
-return x_7;
-}
-}
-}
-}
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Person_ofNat___boxed(lean_object* x_1) {
-_start:
-{
-uint8_t x_2; lean_object* x_3; 
-x_2 = l_MyCompute_Primcodable_Person_ofNat(x_1);
-lean_dec(x_1);
-x_3 = lean_box(x_2);
-return x_3;
-}
-}
-LEAN_EXPORT uint8_t l_MyCompute_Primcodable_instDecidableEqPerson(uint8_t x_1, uint8_t x_2) {
-_start:
-{
-lean_object* x_3; lean_object* x_4; uint8_t x_5; 
-x_3 = l_MyCompute_Primcodable_Person_toCtorIdx(x_1);
-x_4 = l_MyCompute_Primcodable_Person_toCtorIdx(x_2);
-x_5 = lean_nat_dec_eq(x_3, x_4);
-lean_dec(x_4);
-lean_dec(x_3);
+lean_object* x_5; 
+x_5 = lean_alloc_ctor(1, 1, 0);
+lean_ctor_set(x_5, 0, x_2);
 return x_5;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_instDecidableEqPerson___boxed(lean_object* x_1, lean_object* x_2) {
-_start:
-{
-uint8_t x_3; uint8_t x_4; uint8_t x_5; lean_object* x_6; 
-x_3 = lean_unbox(x_1);
-lean_dec(x_1);
-x_4 = lean_unbox(x_2);
-lean_dec(x_2);
-x_5 = l_MyCompute_Primcodable_instDecidableEqPerson(x_3, x_4);
-x_6 = lean_box(x_5);
-return x_6;
 }
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__1() {
+static lean_object* _init_l_PrimBasic_Primcodable_fin___closed__1() {
 _start:
 {
 lean_object* x_1; 
-x_1 = lean_mk_string_unchecked("MyCompute.Primcodable.Person.alice", 34, 34);
+x_1 = lean_alloc_closure((void*)(l_PrimBasic_Primcodable_fin___lambda__1___boxed), 1, 0);
 return x_1;
 }
 }
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__2() {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_fin(lean_object* x_1) {
 _start:
 {
-lean_object* x_1; lean_object* x_2; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__1;
-x_2 = lean_alloc_ctor(3, 1, 0);
-lean_ctor_set(x_2, 0, x_1);
-return x_2;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__3() {
-_start:
-{
-lean_object* x_1; lean_object* x_2; 
-x_1 = lean_unsigned_to_nat(2u);
-x_2 = lean_nat_to_int(x_1);
-return x_2;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__4() {
-_start:
-{
-lean_object* x_1; lean_object* x_2; lean_object* x_3; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__3;
-x_2 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__2;
-x_3 = lean_alloc_ctor(4, 2, 0);
-lean_ctor_set(x_3, 0, x_1);
-lean_ctor_set(x_3, 1, x_2);
-return x_3;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__5() {
-_start:
-{
-lean_object* x_1; uint8_t x_2; lean_object* x_3; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__4;
-x_2 = 0;
-x_3 = lean_alloc_ctor(6, 1, 1);
-lean_ctor_set(x_3, 0, x_1);
-lean_ctor_set_uint8(x_3, sizeof(void*)*1, x_2);
-return x_3;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__6() {
-_start:
-{
-lean_object* x_1; lean_object* x_2; 
-x_1 = lean_unsigned_to_nat(1u);
-x_2 = lean_nat_to_int(x_1);
-return x_2;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__7() {
-_start:
-{
-lean_object* x_1; lean_object* x_2; lean_object* x_3; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__6;
-x_2 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__2;
-x_3 = lean_alloc_ctor(4, 2, 0);
-lean_ctor_set(x_3, 0, x_1);
-lean_ctor_set(x_3, 1, x_2);
-return x_3;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__8() {
-_start:
-{
-lean_object* x_1; uint8_t x_2; lean_object* x_3; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__7;
-x_2 = 0;
-x_3 = lean_alloc_ctor(6, 1, 1);
-lean_ctor_set(x_3, 0, x_1);
-lean_ctor_set_uint8(x_3, sizeof(void*)*1, x_2);
-return x_3;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__9() {
-_start:
-{
-lean_object* x_1; 
-x_1 = lean_mk_string_unchecked("MyCompute.Primcodable.Person.john", 33, 33);
-return x_1;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__10() {
-_start:
-{
-lean_object* x_1; lean_object* x_2; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__9;
-x_2 = lean_alloc_ctor(3, 1, 0);
-lean_ctor_set(x_2, 0, x_1);
-return x_2;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__11() {
-_start:
-{
-lean_object* x_1; lean_object* x_2; lean_object* x_3; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__3;
-x_2 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__10;
-x_3 = lean_alloc_ctor(4, 2, 0);
-lean_ctor_set(x_3, 0, x_1);
-lean_ctor_set(x_3, 1, x_2);
-return x_3;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__12() {
-_start:
-{
-lean_object* x_1; uint8_t x_2; lean_object* x_3; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__11;
-x_2 = 0;
-x_3 = lean_alloc_ctor(6, 1, 1);
-lean_ctor_set(x_3, 0, x_1);
-lean_ctor_set_uint8(x_3, sizeof(void*)*1, x_2);
-return x_3;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__13() {
-_start:
-{
-lean_object* x_1; lean_object* x_2; lean_object* x_3; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__6;
-x_2 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__10;
-x_3 = lean_alloc_ctor(4, 2, 0);
-lean_ctor_set(x_3, 0, x_1);
-lean_ctor_set(x_3, 1, x_2);
-return x_3;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__14() {
-_start:
-{
-lean_object* x_1; uint8_t x_2; lean_object* x_3; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__13;
-x_2 = 0;
-x_3 = lean_alloc_ctor(6, 1, 1);
-lean_ctor_set(x_3, 0, x_1);
-lean_ctor_set_uint8(x_3, sizeof(void*)*1, x_2);
-return x_3;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__15() {
-_start:
-{
-lean_object* x_1; 
-x_1 = lean_mk_string_unchecked("MyCompute.Primcodable.Person.tony", 33, 33);
-return x_1;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__16() {
-_start:
-{
-lean_object* x_1; lean_object* x_2; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__15;
-x_2 = lean_alloc_ctor(3, 1, 0);
-lean_ctor_set(x_2, 0, x_1);
-return x_2;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__17() {
-_start:
-{
-lean_object* x_1; lean_object* x_2; lean_object* x_3; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__3;
-x_2 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__16;
-x_3 = lean_alloc_ctor(4, 2, 0);
-lean_ctor_set(x_3, 0, x_1);
-lean_ctor_set(x_3, 1, x_2);
-return x_3;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__18() {
-_start:
-{
-lean_object* x_1; uint8_t x_2; lean_object* x_3; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__17;
-x_2 = 0;
-x_3 = lean_alloc_ctor(6, 1, 1);
-lean_ctor_set(x_3, 0, x_1);
-lean_ctor_set_uint8(x_3, sizeof(void*)*1, x_2);
-return x_3;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__19() {
-_start:
-{
-lean_object* x_1; lean_object* x_2; lean_object* x_3; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__6;
-x_2 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__16;
-x_3 = lean_alloc_ctor(4, 2, 0);
-lean_ctor_set(x_3, 0, x_1);
-lean_ctor_set(x_3, 1, x_2);
-return x_3;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__20() {
-_start:
-{
-lean_object* x_1; uint8_t x_2; lean_object* x_3; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__19;
-x_2 = 0;
-x_3 = lean_alloc_ctor(6, 1, 1);
-lean_ctor_set(x_3, 0, x_1);
-lean_ctor_set_uint8(x_3, sizeof(void*)*1, x_2);
-return x_3;
-}
-}
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306_(uint8_t x_1, lean_object* x_2) {
-_start:
-{
-switch (x_1) {
-case 0:
-{
-lean_object* x_3; uint8_t x_4; 
-x_3 = lean_unsigned_to_nat(1024u);
-x_4 = lean_nat_dec_le(x_3, x_2);
-if (x_4 == 0)
-{
-lean_object* x_5; lean_object* x_6; 
-x_5 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__5;
-x_6 = l_Repr_addAppParen(x_5, x_2);
-return x_6;
-}
-else
-{
-lean_object* x_7; lean_object* x_8; 
-x_7 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__8;
-x_8 = l_Repr_addAppParen(x_7, x_2);
-return x_8;
-}
-}
-case 1:
-{
-lean_object* x_9; uint8_t x_10; 
-x_9 = lean_unsigned_to_nat(1024u);
-x_10 = lean_nat_dec_le(x_9, x_2);
-if (x_10 == 0)
-{
-lean_object* x_11; lean_object* x_12; 
-x_11 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__12;
-x_12 = l_Repr_addAppParen(x_11, x_2);
-return x_12;
-}
-else
-{
-lean_object* x_13; lean_object* x_14; 
-x_13 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__14;
-x_14 = l_Repr_addAppParen(x_13, x_2);
-return x_14;
-}
-}
-default: 
-{
-lean_object* x_15; uint8_t x_16; 
-x_15 = lean_unsigned_to_nat(1024u);
-x_16 = lean_nat_dec_le(x_15, x_2);
-if (x_16 == 0)
-{
-lean_object* x_17; lean_object* x_18; 
-x_17 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__18;
-x_18 = l_Repr_addAppParen(x_17, x_2);
-return x_18;
-}
-else
-{
-lean_object* x_19; lean_object* x_20; 
-x_19 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__20;
-x_20 = l_Repr_addAppParen(x_19, x_2);
-return x_20;
-}
-}
-}
-}
-}
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____boxed(lean_object* x_1, lean_object* x_2) {
-_start:
-{
-uint8_t x_3; lean_object* x_4; 
-x_3 = lean_unbox(x_1);
-lean_dec(x_1);
-x_4 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306_(x_3, x_2);
-lean_dec(x_2);
-return x_4;
-}
-}
-static lean_object* _init_l_MyCompute_Primcodable_instReprPerson___closed__1() {
-_start:
-{
-lean_object* x_1; 
-x_1 = lean_alloc_closure((void*)(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____boxed), 2, 0);
-return x_1;
-}
-}
-static lean_object* _init_l_MyCompute_Primcodable_instReprPerson() {
-_start:
-{
-lean_object* x_1; 
-x_1 = l_MyCompute_Primcodable_instReprPerson___closed__1;
-return x_1;
-}
-}
-static lean_object* _init_l_MyCompute_Primcodable_Person_enumList___closed__1() {
-_start:
-{
-lean_object* x_1; uint8_t x_2; lean_object* x_3; lean_object* x_4; 
-x_1 = lean_box(0);
-x_2 = 2;
-x_3 = lean_box(x_2);
-x_4 = lean_alloc_ctor(1, 2, 0);
-lean_ctor_set(x_4, 0, x_3);
-lean_ctor_set(x_4, 1, x_1);
-return x_4;
-}
-}
-static lean_object* _init_l_MyCompute_Primcodable_Person_enumList___closed__2() {
-_start:
-{
-uint8_t x_1; lean_object* x_2; lean_object* x_3; lean_object* x_4; 
-x_1 = 1;
-x_2 = l_MyCompute_Primcodable_Person_enumList___closed__1;
-x_3 = lean_box(x_1);
-x_4 = lean_alloc_ctor(1, 2, 0);
+lean_object* x_2; lean_object* x_3; lean_object* x_4; 
+x_2 = lean_alloc_closure((void*)(l_PrimBasic_Primcodable_fin___lambda__2___boxed), 2, 1);
+lean_closure_set(x_2, 0, x_1);
+x_3 = l_PrimBasic_Primcodable_fin___closed__1;
+x_4 = lean_alloc_ctor(0, 2, 0);
 lean_ctor_set(x_4, 0, x_3);
 lean_ctor_set(x_4, 1, x_2);
 return x_4;
 }
 }
-static lean_object* _init_l_MyCompute_Primcodable_Person_enumList___closed__3() {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_fin___lambda__1___boxed(lean_object* x_1) {
 _start:
-{
-uint8_t x_1; lean_object* x_2; lean_object* x_3; lean_object* x_4; 
-x_1 = 0;
-x_2 = l_MyCompute_Primcodable_Person_enumList___closed__2;
-x_3 = lean_box(x_1);
-x_4 = lean_alloc_ctor(1, 2, 0);
-lean_ctor_set(x_4, 0, x_3);
-lean_ctor_set(x_4, 1, x_2);
-return x_4;
-}
-}
-static lean_object* _init_l_MyCompute_Primcodable_Person_enumList() {
-_start:
-{
-lean_object* x_1; 
-x_1 = l_MyCompute_Primcodable_Person_enumList___closed__3;
-return x_1;
-}
-}
-static lean_object* _init_l_MyCompute_Primcodable_instFintypePerson() {
-_start:
-{
-lean_object* x_1; 
-x_1 = l_MyCompute_Primcodable_Person_enumList;
-return x_1;
-}
-}
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Food_toCtorIdx(uint8_t x_1) {
-_start:
-{
-if (x_1 == 0)
 {
 lean_object* x_2; 
-x_2 = lean_unsigned_to_nat(0u);
+x_2 = l_PrimBasic_Primcodable_fin___lambda__1(x_1);
+lean_dec(x_1);
 return x_2;
 }
-else
+}
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_fin___lambda__2___boxed(lean_object* x_1, lean_object* x_2) {
+_start:
 {
 lean_object* x_3; 
-x_3 = lean_unsigned_to_nat(1u);
-return x_3;
-}
-}
-}
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Food_toCtorIdx___boxed(lean_object* x_1) {
-_start:
-{
-uint8_t x_2; lean_object* x_3; 
-x_2 = lean_unbox(x_1);
+x_3 = l_PrimBasic_Primcodable_fin___lambda__2(x_1, x_2);
 lean_dec(x_1);
-x_3 = l_MyCompute_Primcodable_Food_toCtorIdx(x_2);
 return x_3;
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Food_noConfusion___rarg(uint8_t x_1, uint8_t x_2, lean_object* x_3) {
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_ofEquiv___elambda__1___rarg(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
 _start:
 {
-lean_object* x_4; 
-x_4 = l_MyCompute_Primcodable_Person_noConfusion___rarg___closed__1;
-return x_4;
-}
-}
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Food_noConfusion(lean_object* x_1) {
-_start:
-{
-lean_object* x_2; 
-x_2 = lean_alloc_closure((void*)(l_MyCompute_Primcodable_Food_noConfusion___rarg___boxed), 3, 0);
-return x_2;
-}
-}
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Food_noConfusion___rarg___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
-_start:
-{
-uint8_t x_4; uint8_t x_5; lean_object* x_6; 
-x_4 = lean_unbox(x_1);
+lean_object* x_4; lean_object* x_5; 
+x_4 = lean_ctor_get(x_1, 1);
+lean_inc(x_4);
 lean_dec(x_1);
-x_5 = lean_unbox(x_2);
-lean_dec(x_2);
-x_6 = l_MyCompute_Primcodable_Food_noConfusion___rarg(x_4, x_5, x_3);
-return x_6;
-}
-}
-LEAN_EXPORT uint8_t l_MyCompute_Primcodable_Food_ofNat(lean_object* x_1) {
-_start:
-{
-lean_object* x_2; uint8_t x_3; 
-x_2 = lean_unsigned_to_nat(0u);
-x_3 = lean_nat_dec_eq(x_1, x_2);
-if (x_3 == 0)
-{
-uint8_t x_4; 
-x_4 = 1;
-return x_4;
-}
-else
-{
-uint8_t x_5; 
-x_5 = 0;
-return x_5;
-}
-}
-}
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_Food_ofNat___boxed(lean_object* x_1) {
-_start:
-{
-uint8_t x_2; lean_object* x_3; 
-x_2 = l_MyCompute_Primcodable_Food_ofNat(x_1);
-lean_dec(x_1);
-x_3 = lean_box(x_2);
-return x_3;
-}
-}
-LEAN_EXPORT uint8_t l_MyCompute_Primcodable_instDecidableEqFood(uint8_t x_1, uint8_t x_2) {
-_start:
-{
-lean_object* x_3; lean_object* x_4; uint8_t x_5; 
-x_3 = l_MyCompute_Primcodable_Food_toCtorIdx(x_1);
-x_4 = l_MyCompute_Primcodable_Food_toCtorIdx(x_2);
-x_5 = lean_nat_dec_eq(x_3, x_4);
-lean_dec(x_4);
-lean_dec(x_3);
-return x_5;
-}
-}
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_instDecidableEqFood___boxed(lean_object* x_1, lean_object* x_2) {
-_start:
-{
-uint8_t x_3; uint8_t x_4; uint8_t x_5; lean_object* x_6; 
-x_3 = lean_unbox(x_1);
-lean_dec(x_1);
-x_4 = lean_unbox(x_2);
-lean_dec(x_2);
-x_5 = l_MyCompute_Primcodable_instDecidableEqFood(x_3, x_4);
-x_6 = lean_box(x_5);
-return x_6;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__1() {
-_start:
-{
-lean_object* x_1; 
-x_1 = lean_mk_string_unchecked("MyCompute.Primcodable.Food.pizza", 32, 32);
-return x_1;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__2() {
-_start:
-{
-lean_object* x_1; lean_object* x_2; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__1;
-x_2 = lean_alloc_ctor(3, 1, 0);
-lean_ctor_set(x_2, 0, x_1);
-return x_2;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__3() {
-_start:
-{
-lean_object* x_1; lean_object* x_2; lean_object* x_3; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__3;
-x_2 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__2;
-x_3 = lean_alloc_ctor(4, 2, 0);
-lean_ctor_set(x_3, 0, x_1);
-lean_ctor_set(x_3, 1, x_2);
-return x_3;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__4() {
-_start:
-{
-lean_object* x_1; uint8_t x_2; lean_object* x_3; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__3;
-x_2 = 0;
-x_3 = lean_alloc_ctor(6, 1, 1);
-lean_ctor_set(x_3, 0, x_1);
-lean_ctor_set_uint8(x_3, sizeof(void*)*1, x_2);
-return x_3;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__5() {
-_start:
-{
-lean_object* x_1; lean_object* x_2; lean_object* x_3; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__6;
-x_2 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__2;
-x_3 = lean_alloc_ctor(4, 2, 0);
-lean_ctor_set(x_3, 0, x_1);
-lean_ctor_set(x_3, 1, x_2);
-return x_3;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__6() {
-_start:
-{
-lean_object* x_1; uint8_t x_2; lean_object* x_3; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__5;
-x_2 = 0;
-x_3 = lean_alloc_ctor(6, 1, 1);
-lean_ctor_set(x_3, 0, x_1);
-lean_ctor_set_uint8(x_3, sizeof(void*)*1, x_2);
-return x_3;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__7() {
-_start:
-{
-lean_object* x_1; 
-x_1 = lean_mk_string_unchecked("MyCompute.Primcodable.Food.hotdog", 33, 33);
-return x_1;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__8() {
-_start:
-{
-lean_object* x_1; lean_object* x_2; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__7;
-x_2 = lean_alloc_ctor(3, 1, 0);
-lean_ctor_set(x_2, 0, x_1);
-return x_2;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__9() {
-_start:
-{
-lean_object* x_1; lean_object* x_2; lean_object* x_3; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__3;
-x_2 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__8;
-x_3 = lean_alloc_ctor(4, 2, 0);
-lean_ctor_set(x_3, 0, x_1);
-lean_ctor_set(x_3, 1, x_2);
-return x_3;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__10() {
-_start:
-{
-lean_object* x_1; uint8_t x_2; lean_object* x_3; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__9;
-x_2 = 0;
-x_3 = lean_alloc_ctor(6, 1, 1);
-lean_ctor_set(x_3, 0, x_1);
-lean_ctor_set_uint8(x_3, sizeof(void*)*1, x_2);
-return x_3;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__11() {
-_start:
-{
-lean_object* x_1; lean_object* x_2; lean_object* x_3; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__6;
-x_2 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__8;
-x_3 = lean_alloc_ctor(4, 2, 0);
-lean_ctor_set(x_3, 0, x_1);
-lean_ctor_set(x_3, 1, x_2);
-return x_3;
-}
-}
-static lean_object* _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__12() {
-_start:
-{
-lean_object* x_1; uint8_t x_2; lean_object* x_3; 
-x_1 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__11;
-x_2 = 0;
-x_3 = lean_alloc_ctor(6, 1, 1);
-lean_ctor_set(x_3, 0, x_1);
-lean_ctor_set_uint8(x_3, sizeof(void*)*1, x_2);
-return x_3;
-}
-}
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720_(uint8_t x_1, lean_object* x_2) {
-_start:
-{
-if (x_1 == 0)
-{
-lean_object* x_3; uint8_t x_4; 
-x_3 = lean_unsigned_to_nat(1024u);
-x_4 = lean_nat_dec_le(x_3, x_2);
-if (x_4 == 0)
-{
-lean_object* x_5; lean_object* x_6; 
-x_5 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__4;
-x_6 = l_Repr_addAppParen(x_5, x_2);
-return x_6;
-}
-else
-{
-lean_object* x_7; lean_object* x_8; 
-x_7 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__6;
-x_8 = l_Repr_addAppParen(x_7, x_2);
-return x_8;
-}
-}
-else
-{
-lean_object* x_9; uint8_t x_10; 
-x_9 = lean_unsigned_to_nat(1024u);
-x_10 = lean_nat_dec_le(x_9, x_2);
-if (x_10 == 0)
-{
-lean_object* x_11; lean_object* x_12; 
-x_11 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__10;
-x_12 = l_Repr_addAppParen(x_11, x_2);
-return x_12;
-}
-else
-{
-lean_object* x_13; lean_object* x_14; 
-x_13 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__12;
-x_14 = l_Repr_addAppParen(x_13, x_2);
-return x_14;
-}
-}
-}
-}
-LEAN_EXPORT lean_object* l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____boxed(lean_object* x_1, lean_object* x_2) {
-_start:
-{
-uint8_t x_3; lean_object* x_4; 
-x_3 = lean_unbox(x_1);
-lean_dec(x_1);
-x_4 = l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720_(x_3, x_2);
-lean_dec(x_2);
-return x_4;
-}
-}
-static lean_object* _init_l_MyCompute_Primcodable_instReprFood___closed__1() {
-_start:
-{
-lean_object* x_1; 
-x_1 = lean_alloc_closure((void*)(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____boxed), 2, 0);
-return x_1;
-}
-}
-static lean_object* _init_l_MyCompute_Primcodable_instReprFood() {
-_start:
-{
-lean_object* x_1; 
-x_1 = l_MyCompute_Primcodable_instReprFood___closed__1;
-return x_1;
-}
-}
-static lean_object* _init_l_MyCompute_Primcodable_Food_enumList___closed__1() {
-_start:
-{
-lean_object* x_1; uint8_t x_2; lean_object* x_3; lean_object* x_4; 
-x_1 = lean_box(0);
-x_2 = 1;
-x_3 = lean_box(x_2);
-x_4 = lean_alloc_ctor(1, 2, 0);
-lean_ctor_set(x_4, 0, x_3);
-lean_ctor_set(x_4, 1, x_1);
-return x_4;
-}
-}
-static lean_object* _init_l_MyCompute_Primcodable_Food_enumList___closed__2() {
-_start:
-{
-uint8_t x_1; lean_object* x_2; lean_object* x_3; lean_object* x_4; 
-x_1 = 0;
-x_2 = l_MyCompute_Primcodable_Food_enumList___closed__1;
-x_3 = lean_box(x_1);
-x_4 = lean_alloc_ctor(1, 2, 0);
-lean_ctor_set(x_4, 0, x_3);
-lean_ctor_set(x_4, 1, x_2);
-return x_4;
-}
-}
-static lean_object* _init_l_MyCompute_Primcodable_Food_enumList() {
-_start:
-{
-lean_object* x_1; 
-x_1 = l_MyCompute_Primcodable_Food_enumList___closed__2;
-return x_1;
-}
-}
-static lean_object* _init_l_MyCompute_Primcodable_instFintypeFood() {
-_start:
-{
-lean_object* x_1; 
-x_1 = l_MyCompute_Primcodable_Food_enumList;
-return x_1;
-}
-}
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_instFood___lambda__1(uint8_t x_1) {
-_start:
-{
-if (x_1 == 0)
-{
-lean_object* x_2; 
-x_2 = lean_unsigned_to_nat(0u);
-return x_2;
-}
-else
-{
-lean_object* x_3; 
-x_3 = lean_unsigned_to_nat(1u);
-return x_3;
-}
-}
-}
-static lean_object* _init_l_MyCompute_Primcodable_instFood___lambda__2___closed__1() {
-_start:
-{
-uint8_t x_1; lean_object* x_2; lean_object* x_3; 
-x_1 = 1;
-x_2 = lean_box(x_1);
-x_3 = lean_alloc_ctor(1, 1, 0);
-lean_ctor_set(x_3, 0, x_2);
-return x_3;
-}
-}
-static lean_object* _init_l_MyCompute_Primcodable_instFood___lambda__2___closed__2() {
-_start:
-{
-uint8_t x_1; lean_object* x_2; lean_object* x_3; 
-x_1 = 0;
-x_2 = lean_box(x_1);
-x_3 = lean_alloc_ctor(1, 1, 0);
-lean_ctor_set(x_3, 0, x_2);
-return x_3;
-}
-}
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_instFood___lambda__2(lean_object* x_1) {
-_start:
-{
-lean_object* x_2; uint8_t x_3; 
-x_2 = lean_unsigned_to_nat(0u);
-x_3 = lean_nat_dec_eq(x_1, x_2);
-if (x_3 == 0)
-{
-lean_object* x_4; uint8_t x_5; 
-x_4 = lean_unsigned_to_nat(1u);
-x_5 = lean_nat_dec_eq(x_1, x_4);
-if (x_5 == 0)
+x_5 = lean_apply_1(x_4, x_3);
+if (lean_obj_tag(x_5) == 0)
 {
 lean_object* x_6; 
+lean_dec(x_2);
 x_6 = lean_box(0);
 return x_6;
 }
 else
 {
-lean_object* x_7; 
-x_7 = l_MyCompute_Primcodable_instFood___lambda__2___closed__1;
-return x_7;
-}
-}
-else
+uint8_t x_7; 
+x_7 = !lean_is_exclusive(x_5);
+if (x_7 == 0)
 {
-lean_object* x_8; 
-x_8 = l_MyCompute_Primcodable_instFood___lambda__2___closed__2;
-return x_8;
-}
-}
-}
-static lean_object* _init_l_MyCompute_Primcodable_instFood___closed__1() {
-_start:
-{
-lean_object* x_1; 
-x_1 = lean_alloc_closure((void*)(l_MyCompute_Primcodable_instFood___lambda__1___boxed), 1, 0);
-return x_1;
-}
-}
-static lean_object* _init_l_MyCompute_Primcodable_instFood___closed__2() {
-_start:
-{
-lean_object* x_1; 
-x_1 = lean_alloc_closure((void*)(l_MyCompute_Primcodable_instFood___lambda__2___boxed), 1, 0);
-return x_1;
-}
-}
-static lean_object* _init_l_MyCompute_Primcodable_instFood___closed__3() {
-_start:
-{
-lean_object* x_1; lean_object* x_2; lean_object* x_3; 
-x_1 = l_MyCompute_Primcodable_instFood___closed__1;
-x_2 = l_MyCompute_Primcodable_instFood___closed__2;
-x_3 = lean_alloc_ctor(0, 2, 0);
-lean_ctor_set(x_3, 0, x_1);
-lean_ctor_set(x_3, 1, x_2);
-return x_3;
-}
-}
-static lean_object* _init_l_MyCompute_Primcodable_instFood() {
-_start:
-{
-lean_object* x_1; 
-x_1 = l_MyCompute_Primcodable_instFood___closed__3;
-return x_1;
-}
-}
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_instFood___lambda__1___boxed(lean_object* x_1) {
-_start:
-{
-uint8_t x_2; lean_object* x_3; 
-x_2 = lean_unbox(x_1);
-lean_dec(x_1);
-x_3 = l_MyCompute_Primcodable_instFood___lambda__1(x_2);
-return x_3;
-}
-}
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_instFood___lambda__2___boxed(lean_object* x_1) {
-_start:
-{
-lean_object* x_2; 
-x_2 = l_MyCompute_Primcodable_instFood___lambda__2(x_1);
-lean_dec(x_1);
-return x_2;
-}
-}
-LEAN_EXPORT uint8_t l_MyCompute_Primcodable_p2f(uint8_t x_1) {
-_start:
-{
-lean_object* x_2; 
-x_2 = lean_box(x_1);
-if (lean_obj_tag(x_2) == 1)
-{
-uint8_t x_3; 
-x_3 = 1;
-return x_3;
-}
-else
-{
-uint8_t x_4; 
+lean_object* x_8; lean_object* x_9; lean_object* x_10; 
+x_8 = lean_ctor_get(x_5, 0);
+x_9 = lean_ctor_get(x_2, 0);
+lean_inc(x_9);
 lean_dec(x_2);
-x_4 = 0;
-return x_4;
+x_10 = lean_apply_1(x_9, x_8);
+lean_ctor_set(x_5, 0, x_10);
+return x_5;
+}
+else
+{
+lean_object* x_11; lean_object* x_12; lean_object* x_13; lean_object* x_14; 
+x_11 = lean_ctor_get(x_5, 0);
+lean_inc(x_11);
+lean_dec(x_5);
+x_12 = lean_ctor_get(x_2, 0);
+lean_inc(x_12);
+lean_dec(x_2);
+x_13 = lean_apply_1(x_12, x_11);
+x_14 = lean_alloc_ctor(1, 1, 0);
+lean_ctor_set(x_14, 0, x_13);
+return x_14;
 }
 }
 }
-LEAN_EXPORT lean_object* l_MyCompute_Primcodable_p2f___boxed(lean_object* x_1) {
+}
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_ofEquiv___elambda__1(lean_object* x_1, lean_object* x_2) {
 _start:
 {
-uint8_t x_2; uint8_t x_3; lean_object* x_4; 
-x_2 = lean_unbox(x_1);
+lean_object* x_3; 
+x_3 = lean_alloc_closure((void*)(l_PrimBasic_Primcodable_ofEquiv___elambda__1___rarg), 3, 0);
+return x_3;
+}
+}
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_ofEquiv___elambda__2___rarg(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+lean_object* x_4; lean_object* x_5; lean_object* x_6; 
+x_4 = lean_ctor_get(x_1, 0);
+lean_inc(x_4);
 lean_dec(x_1);
-x_3 = l_MyCompute_Primcodable_p2f(x_2);
-x_4 = lean_box(x_3);
-return x_4;
+x_5 = l_Equiv_symm___elambda__2___rarg(x_2, x_3);
+x_6 = lean_apply_1(x_4, x_5);
+return x_6;
+}
+}
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_ofEquiv___elambda__2(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; 
+x_3 = lean_alloc_closure((void*)(l_PrimBasic_Primcodable_ofEquiv___elambda__2___rarg), 3, 0);
+return x_3;
+}
+}
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_ofEquiv___rarg(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; lean_object* x_4; lean_object* x_5; 
+lean_inc(x_2);
+lean_inc(x_1);
+x_3 = lean_alloc_closure((void*)(l_PrimBasic_Primcodable_ofEquiv___elambda__2___rarg), 3, 2);
+lean_closure_set(x_3, 0, x_1);
+lean_closure_set(x_3, 1, x_2);
+x_4 = lean_alloc_closure((void*)(l_PrimBasic_Primcodable_ofEquiv___elambda__1___rarg), 3, 2);
+lean_closure_set(x_4, 0, x_1);
+lean_closure_set(x_4, 1, x_2);
+x_5 = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(x_5, 0, x_3);
+lean_ctor_set(x_5, 1, x_4);
+return x_5;
+}
+}
+LEAN_EXPORT lean_object* l_PrimBasic_Primcodable_ofEquiv(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; 
+x_3 = lean_alloc_closure((void*)(l_PrimBasic_Primcodable_ofEquiv___rarg), 2, 0);
+return x_3;
 }
 }
 lean_object* initialize_Init(uint8_t builtin, lean_object*);
 lean_object* initialize_Mathlib_Data_Fintype_Basic(uint8_t builtin, lean_object*);
-lean_object* initialize_Mathlib_Algebra_Order_Ring_Nat(uint8_t builtin, lean_object*);
-lean_object* initialize_Mathlib_Data_Finset_Basic(uint8_t builtin, lean_object*);
 lean_object* initialize_Mathlib_Tactic_FinCases(uint8_t builtin, lean_object*);
 lean_object* initialize_Mathlib_Data_Fintype_Prod(uint8_t builtin, lean_object*);
 lean_object* initialize_Mathlib_Data_Nat_Pairing(uint8_t builtin, lean_object*);
-lean_object* initialize_Mathlib_Tactic_DeriveFintype(uint8_t builtin, lean_object*);
 lean_object* initialize_Mathlib_Tactic(uint8_t builtin, lean_object*);
+lean_object* initialize_Mathlib_Computability_Partrec(uint8_t builtin, lean_object*);
+lean_object* initialize_Mathlib_Order_RelClasses(uint8_t builtin, lean_object*);
 static bool _G_initialized = false;
 LEAN_EXPORT lean_object* initialize_Impossibility_PrimcodableBasic(uint8_t builtin, lean_object* w) {
 lean_object * res;
@@ -2411,12 +1605,6 @@ lean_dec_ref(res);
 res = initialize_Mathlib_Data_Fintype_Basic(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
-res = initialize_Mathlib_Algebra_Order_Ring_Nat(builtin, lean_io_mk_world());
-if (lean_io_result_is_error(res)) return res;
-lean_dec_ref(res);
-res = initialize_Mathlib_Data_Finset_Basic(builtin, lean_io_mk_world());
-if (lean_io_result_is_error(res)) return res;
-lean_dec_ref(res);
 res = initialize_Mathlib_Tactic_FinCases(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
@@ -2426,140 +1614,43 @@ lean_dec_ref(res);
 res = initialize_Mathlib_Data_Nat_Pairing(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
-res = initialize_Mathlib_Tactic_DeriveFintype(builtin, lean_io_mk_world());
-if (lean_io_result_is_error(res)) return res;
-lean_dec_ref(res);
 res = initialize_Mathlib_Tactic(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
-l_MyCompute_Primcodable_nat___closed__1 = _init_l_MyCompute_Primcodable_nat___closed__1();
-lean_mark_persistent(l_MyCompute_Primcodable_nat___closed__1);
-l_MyCompute_Primcodable_nat___closed__2 = _init_l_MyCompute_Primcodable_nat___closed__2();
-lean_mark_persistent(l_MyCompute_Primcodable_nat___closed__2);
-l_MyCompute_Primcodable_nat___closed__3 = _init_l_MyCompute_Primcodable_nat___closed__3();
-lean_mark_persistent(l_MyCompute_Primcodable_nat___closed__3);
-l_MyCompute_Primcodable_nat = _init_l_MyCompute_Primcodable_nat();
-lean_mark_persistent(l_MyCompute_Primcodable_nat);
-l_MyCompute_Primcodable_bool___lambda__2___closed__1 = _init_l_MyCompute_Primcodable_bool___lambda__2___closed__1();
-lean_mark_persistent(l_MyCompute_Primcodable_bool___lambda__2___closed__1);
-l_MyCompute_Primcodable_bool___lambda__2___closed__2 = _init_l_MyCompute_Primcodable_bool___lambda__2___closed__2();
-lean_mark_persistent(l_MyCompute_Primcodable_bool___lambda__2___closed__2);
-l_MyCompute_Primcodable_bool___closed__1 = _init_l_MyCompute_Primcodable_bool___closed__1();
-lean_mark_persistent(l_MyCompute_Primcodable_bool___closed__1);
-l_MyCompute_Primcodable_bool___closed__2 = _init_l_MyCompute_Primcodable_bool___closed__2();
-lean_mark_persistent(l_MyCompute_Primcodable_bool___closed__2);
-l_MyCompute_Primcodable_bool___closed__3 = _init_l_MyCompute_Primcodable_bool___closed__3();
-lean_mark_persistent(l_MyCompute_Primcodable_bool___closed__3);
-l_MyCompute_Primcodable_bool = _init_l_MyCompute_Primcodable_bool();
-lean_mark_persistent(l_MyCompute_Primcodable_bool);
-l_MyCompute_Primcodable_encodeFin2Bool___closed__1 = _init_l_MyCompute_Primcodable_encodeFin2Bool___closed__1();
-lean_mark_persistent(l_MyCompute_Primcodable_encodeFin2Bool___closed__1);
-l_MyCompute_Primcodable_encodeFin2Bool___closed__2 = _init_l_MyCompute_Primcodable_encodeFin2Bool___closed__2();
-lean_mark_persistent(l_MyCompute_Primcodable_encodeFin2Bool___closed__2);
-l_MyCompute_Primcodable_Person_noConfusion___rarg___closed__1 = _init_l_MyCompute_Primcodable_Person_noConfusion___rarg___closed__1();
-lean_mark_persistent(l_MyCompute_Primcodable_Person_noConfusion___rarg___closed__1);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__1 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__1();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__1);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__2 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__2();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__2);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__3 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__3();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__3);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__4 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__4();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__4);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__5 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__5();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__5);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__6 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__6();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__6);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__7 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__7();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__7);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__8 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__8();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__8);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__9 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__9();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__9);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__10 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__10();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__10);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__11 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__11();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__11);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__12 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__12();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__12);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__13 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__13();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__13);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__14 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__14();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__14);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__15 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__15();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__15);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__16 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__16();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__16);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__17 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__17();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__17);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__18 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__18();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__18);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__19 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__19();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__19);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__20 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__20();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprPerson____x40_Impossibility_PrimcodableBasic___hyg_1306____closed__20);
-l_MyCompute_Primcodable_instReprPerson___closed__1 = _init_l_MyCompute_Primcodable_instReprPerson___closed__1();
-lean_mark_persistent(l_MyCompute_Primcodable_instReprPerson___closed__1);
-l_MyCompute_Primcodable_instReprPerson = _init_l_MyCompute_Primcodable_instReprPerson();
-lean_mark_persistent(l_MyCompute_Primcodable_instReprPerson);
-l_MyCompute_Primcodable_Person_enumList___closed__1 = _init_l_MyCompute_Primcodable_Person_enumList___closed__1();
-lean_mark_persistent(l_MyCompute_Primcodable_Person_enumList___closed__1);
-l_MyCompute_Primcodable_Person_enumList___closed__2 = _init_l_MyCompute_Primcodable_Person_enumList___closed__2();
-lean_mark_persistent(l_MyCompute_Primcodable_Person_enumList___closed__2);
-l_MyCompute_Primcodable_Person_enumList___closed__3 = _init_l_MyCompute_Primcodable_Person_enumList___closed__3();
-lean_mark_persistent(l_MyCompute_Primcodable_Person_enumList___closed__3);
-l_MyCompute_Primcodable_Person_enumList = _init_l_MyCompute_Primcodable_Person_enumList();
-lean_mark_persistent(l_MyCompute_Primcodable_Person_enumList);
-l_MyCompute_Primcodable_instFintypePerson = _init_l_MyCompute_Primcodable_instFintypePerson();
-lean_mark_persistent(l_MyCompute_Primcodable_instFintypePerson);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__1 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__1();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__1);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__2 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__2();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__2);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__3 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__3();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__3);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__4 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__4();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__4);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__5 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__5();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__5);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__6 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__6();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__6);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__7 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__7();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__7);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__8 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__8();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__8);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__9 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__9();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__9);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__10 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__10();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__10);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__11 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__11();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__11);
-l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__12 = _init_l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__12();
-lean_mark_persistent(l___private_Impossibility_PrimcodableBasic_0__MyCompute_Primcodable_reprFood____x40_Impossibility_PrimcodableBasic___hyg_1720____closed__12);
-l_MyCompute_Primcodable_instReprFood___closed__1 = _init_l_MyCompute_Primcodable_instReprFood___closed__1();
-lean_mark_persistent(l_MyCompute_Primcodable_instReprFood___closed__1);
-l_MyCompute_Primcodable_instReprFood = _init_l_MyCompute_Primcodable_instReprFood();
-lean_mark_persistent(l_MyCompute_Primcodable_instReprFood);
-l_MyCompute_Primcodable_Food_enumList___closed__1 = _init_l_MyCompute_Primcodable_Food_enumList___closed__1();
-lean_mark_persistent(l_MyCompute_Primcodable_Food_enumList___closed__1);
-l_MyCompute_Primcodable_Food_enumList___closed__2 = _init_l_MyCompute_Primcodable_Food_enumList___closed__2();
-lean_mark_persistent(l_MyCompute_Primcodable_Food_enumList___closed__2);
-l_MyCompute_Primcodable_Food_enumList = _init_l_MyCompute_Primcodable_Food_enumList();
-lean_mark_persistent(l_MyCompute_Primcodable_Food_enumList);
-l_MyCompute_Primcodable_instFintypeFood = _init_l_MyCompute_Primcodable_instFintypeFood();
-lean_mark_persistent(l_MyCompute_Primcodable_instFintypeFood);
-l_MyCompute_Primcodable_instFood___lambda__2___closed__1 = _init_l_MyCompute_Primcodable_instFood___lambda__2___closed__1();
-lean_mark_persistent(l_MyCompute_Primcodable_instFood___lambda__2___closed__1);
-l_MyCompute_Primcodable_instFood___lambda__2___closed__2 = _init_l_MyCompute_Primcodable_instFood___lambda__2___closed__2();
-lean_mark_persistent(l_MyCompute_Primcodable_instFood___lambda__2___closed__2);
-l_MyCompute_Primcodable_instFood___closed__1 = _init_l_MyCompute_Primcodable_instFood___closed__1();
-lean_mark_persistent(l_MyCompute_Primcodable_instFood___closed__1);
-l_MyCompute_Primcodable_instFood___closed__2 = _init_l_MyCompute_Primcodable_instFood___closed__2();
-lean_mark_persistent(l_MyCompute_Primcodable_instFood___closed__2);
-l_MyCompute_Primcodable_instFood___closed__3 = _init_l_MyCompute_Primcodable_instFood___closed__3();
-lean_mark_persistent(l_MyCompute_Primcodable_instFood___closed__3);
-l_MyCompute_Primcodable_instFood = _init_l_MyCompute_Primcodable_instFood();
-lean_mark_persistent(l_MyCompute_Primcodable_instFood);
+res = initialize_Mathlib_Computability_Partrec(builtin, lean_io_mk_world());
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = initialize_Mathlib_Order_RelClasses(builtin, lean_io_mk_world());
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+l_PrimBasic_Primcodable_nat___closed__1 = _init_l_PrimBasic_Primcodable_nat___closed__1();
+lean_mark_persistent(l_PrimBasic_Primcodable_nat___closed__1);
+l_PrimBasic_Primcodable_nat___closed__2 = _init_l_PrimBasic_Primcodable_nat___closed__2();
+lean_mark_persistent(l_PrimBasic_Primcodable_nat___closed__2);
+l_PrimBasic_Primcodable_nat___closed__3 = _init_l_PrimBasic_Primcodable_nat___closed__3();
+lean_mark_persistent(l_PrimBasic_Primcodable_nat___closed__3);
+l_PrimBasic_Primcodable_nat = _init_l_PrimBasic_Primcodable_nat();
+lean_mark_persistent(l_PrimBasic_Primcodable_nat);
+l_PrimBasic_Primcodable_bool___lambda__2___closed__1 = _init_l_PrimBasic_Primcodable_bool___lambda__2___closed__1();
+lean_mark_persistent(l_PrimBasic_Primcodable_bool___lambda__2___closed__1);
+l_PrimBasic_Primcodable_bool___lambda__2___closed__2 = _init_l_PrimBasic_Primcodable_bool___lambda__2___closed__2();
+lean_mark_persistent(l_PrimBasic_Primcodable_bool___lambda__2___closed__2);
+l_PrimBasic_Primcodable_bool___closed__1 = _init_l_PrimBasic_Primcodable_bool___closed__1();
+lean_mark_persistent(l_PrimBasic_Primcodable_bool___closed__1);
+l_PrimBasic_Primcodable_bool___closed__2 = _init_l_PrimBasic_Primcodable_bool___closed__2();
+lean_mark_persistent(l_PrimBasic_Primcodable_bool___closed__2);
+l_PrimBasic_Primcodable_bool___closed__3 = _init_l_PrimBasic_Primcodable_bool___closed__3();
+lean_mark_persistent(l_PrimBasic_Primcodable_bool___closed__3);
+l_PrimBasic_Primcodable_bool = _init_l_PrimBasic_Primcodable_bool();
+lean_mark_persistent(l_PrimBasic_Primcodable_bool);
+l_PrimBasic_Primcodable_encodeFin2Bool___closed__1 = _init_l_PrimBasic_Primcodable_encodeFin2Bool___closed__1();
+lean_mark_persistent(l_PrimBasic_Primcodable_encodeFin2Bool___closed__1);
+l_PrimBasic_Primcodable_encodeFin2Bool___closed__2 = _init_l_PrimBasic_Primcodable_encodeFin2Bool___closed__2();
+lean_mark_persistent(l_PrimBasic_Primcodable_encodeFin2Bool___closed__2);
+l_PrimBasic_Primcodable_option___rarg___lambda__2___closed__1 = _init_l_PrimBasic_Primcodable_option___rarg___lambda__2___closed__1();
+lean_mark_persistent(l_PrimBasic_Primcodable_option___rarg___lambda__2___closed__1);
+l_PrimBasic_Primcodable_fin___closed__1 = _init_l_PrimBasic_Primcodable_fin___closed__1();
+lean_mark_persistent(l_PrimBasic_Primcodable_fin___closed__1);
 return lean_io_result_mk_ok(lean_box(0));
 }
 #ifdef __cplusplus

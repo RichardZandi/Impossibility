@@ -3,7 +3,7 @@
    ".> LEAN_PATH=/Users/richardzandi/Impossibility/.lake/packages/Cli/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/batteries/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/Qq/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/aesop/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/importGraph/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/plausible/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/mathlib/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/godelnumbering/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/packages/Kleene2/.lake/build/lib/lean:/Users/richardzandi/Impossibility/.lake/build/lib/lean /Users/richardzandi/.elan/toolchains/leanprover--lean4---v4.20.0/bin/lean /Users/richardzandi/Impossibility/Impossibility/Arrow/ArrowTypes.lean -R /Users/richardzandi/Impossibility -o /Users/richardzandi/Impossibility/.lake/build/lib/lean/Impossibility/Arrow/ArrowTypes.olean -i /Users/richardzandi/Impossibility/.lake/build/lib/lean/Impossibility/Arrow/ArrowTypes.ilean -c /Users/richardzandi/Impossibility/.lake/build/ir/Impossibility/Arrow/ArrowTypes.c --json",
    "level": "trace"},
   {"message":
-   "/Users/richardzandi/Impossibility/Impossibility/Arrow/ArrowTypes.lean:80:0: automatically included section variable(s) unused in theorem 'ArrowTypes.canonicalRel_strictTotal':\n  [DecidableEq A]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq A] in theorem ...\nnote: this linter can be disabled with `set_option linter.unusedSectionVars false`",
+   "/Users/richardzandi/Impossibility/Impossibility/Arrow/ArrowTypes.lean:64:0: automatically included section variable(s) unused in theorem 'ArrowTypes.canonicalRel_strictTotal':\n  [DecidableEq A]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [DecidableEq A] in theorem ...\nnote: this linter can be disabled with `set_option linter.unusedSectionVars false`",
    "level": "warning"}],
  "inputs":
  [["Impossibility.Arrow.ArrowTypes:deps",
@@ -26,7 +26,11 @@
         ["Mathlib.Data.Fintype.EquivFin:olean",
          [["Mathlib.Data.Fintype.EquivFin:deps", "18297119602160565046"],
           ["/Users/richardzandi/Impossibility/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fintype/EquivFin.olean",
-           "4468265097461932577"]]]]]]],
+           "4468265097461932577"]]],
+        ["Impossibility.PreferenceCodec:olean",
+         [["Impossibility.PreferenceCodec:deps", "5593498759618818803"],
+          ["/Users/richardzandi/Impossibility/.lake/build/lib/lean/Impossibility/PreferenceCodec.olean",
+           "9488325500895049289"]]]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -36,5 +40,5 @@
    "16311077432335102250"],
   ["Module.leanArgs: #[]", "1723"],
   ["/Users/richardzandi/Impossibility/Impossibility/Arrow/ArrowTypes.lean",
-   "12566654102035464759"]],
- "depHash": "13166944020801024061"}
+   "12435972382671306707"]],
+ "depHash": "12695741027809715675"}

@@ -1,23 +1,11 @@
-/-
-Impossibility/Arrow/ArrowTypes.lean
-────────────────────────────────────
-Foundation layer for Arrow’s Impossibility Theorem (UCI version).
-
-* finite agents            (`α`)
-* finite alternatives `A`  (with |A| ≥ 3)
-* bundled strict orders    (`Preference`)
-* profiles & social orders
-* lemma `exists_three_distinct` proved without axioms
-
-This file now compiles with **zero holes**.
--/
-
 import Mathlib.Data.Fintype.Card
 import Mathlib.Data.Fintype.Basic   -- for `equivFin`
 import Mathlib.Data.Finset.Basic
 import Mathlib.Data.Fintype.EquivFin
+import Impossibility.PreferenceCodec
 
 open Classical
+open PrefCodec
 
 universe u
 
@@ -32,20 +20,23 @@ variable {A : Type u} [Fintype A] [DecidableEq A]
 
 /-! ### 2  Preferences, profiles, social orders -/
 
-/-- An **individual preference**: bundled strict total order on `A`. -/
-structure Preference (A : Type u) [DecidableEq A] : Type u where
-  rel          : A → A → Prop
-  strict_total : IsStrictTotalOrder A rel
 
-instance (A) [DecidableEq A] : CoeFun (Preference A) (fun _ => A → A → Prop) where
-  coe p := p.rel
+--RZ instance (A) [DecidableEq A] : CoeFun (Preference A) (fun _ => A → A → Prop) where
+--RZ coe p := p.rel
 
-/-- A **profile** assigns each agent their preference. -/
-abbrev Profile (α A : Type u) [Fintype α] [DecidableEq α] [DecidableEq A] :=
-  α → Preference A
+--RZ abbrev Profile (α A : Type u) [Fintype α] [DecidableEq α] [DecidableEq A] :=
+--RZ  α → Preference A
 
-/-- A **social-welfare order** is again a preference on `A`. -/
-abbrev SocialWelfare (A : Type u) [DecidableEq A] := Preference A
+--RZ abbrev SocialWelfare (A : Type u) [DecidableEq A] := Preference A
+
+/-- A **profile**: one Boolean preference-matrix per voter. -/
+abbrev Profile  (α A : Type u) [Fintype α] :=
+  ProfileMat α A        -- = Fin (card α) → PrefMat A
+
+/-- A **social-welfare order** is again a preference matrix on `A`. -/
+abbrev SocialWelfare (A : Type u) := PrefMat A
+
+
 
 /-! ### 3  Three distinct alternatives when `|A| ≥ 3` -/
 
@@ -115,16 +106,27 @@ lemma canonicalRel_strictTotal : IsStrictTotalOrder A canonicalRel := by
     dsimp [canonicalRel] at *
     exact Nat.lt_trans hab hbc
 
-/-- Default preference built from the canonical order. -/
-noncomputable def defaultPref : Preference A :=
-  ⟨canonicalRel, canonicalRel_strictTotal⟩
+--RZ noncomputable def defaultPref : Preference A :=
+--RZ --RZ   ⟨canonicalRel, canonicalRel_strictTotal⟩
 
-/-- Constant profile where **every** voter shares the same preference. -/
-@[simp] def constProfile (p : Preference A) : Profile α A := fun _ => p
+--RZ @[simp] def constProfile (p : Preference A) : Profile α A := fun _ => p
 
-/-- Every voter has `defaultPref`. Handy lemma. -/
+--RZ @[simp] lemma const_default_apply (i : α) :
+--RZ     (constProfile (α:=α) (p:=defaultPref (A:=A)) i) = defaultPref (A:=A) :=
+--RZ   rfl
+
+noncomputable def canonicalRel : PrefMat A :=
+  fun (x,y) => decide ((Fintype.equivFin A x) < (Fintype.equivFin A y))
+
+/-- The constant profile in which every voter shares the same matrix. -/
+@[simp] def constProfile (p : PrefMat A) : Profile α A := fun _ => p
+
 @[simp] lemma const_default_apply (i : α) :
-    (constProfile (α:=α) (p:=defaultPref (A:=A)) i) = defaultPref (A:=A) :=
+    constProfile (α := α) (p := canonicalRel (A := A)) i =
+      canonicalRel (A := A) :=
   rfl
+
+
+
 
 end ArrowTypes

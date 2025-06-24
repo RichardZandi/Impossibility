@@ -12,9 +12,9 @@
        [["@Impossibility:extraDep", "1723"]]],
       ["import oleans",
        [["Impossibility.Arrow.ArrowTypes:olean",
-         [["Impossibility.Arrow.ArrowTypes:deps", "16599576644605132595"],
+         [["Impossibility.Arrow.ArrowTypes:deps", "15864077755442671099"],
           ["/Users/richardzandi/Impossibility/.lake/build/lib/lean/Impossibility/Arrow/ArrowTypes.olean",
-           "12033059934188204810"]]]]]]],
+           "14236871569679351980"]]]]]]],
     ["libs",
      [["import dynlibs", "1723"],
       ["package external libraries", "1723"],
@@ -25,4 +25,4 @@
   ["Module.leanArgs: #[]", "1723"],
   ["/Users/richardzandi/Impossibility/Impossibility/Arrow/ArrowAxioms.lean",
    "4217088306414984875"]],
- "depHash": "12688470029104438982"}
+ "depHash": "1153493403602601853"}
