@@ -23,16 +23,17 @@ abbrev PrefMat (A : Type*) := (A × A) → Bool
 /-! 2 ▸  Profile of such matrices, one voter for every `Fin k`.          -/
 abbrev ProfileMat (α A : Type*) [Fintype α] := Fin (Fintype.card α) → PrefMat A
 
+noncomputable instance prefMatPrim {A} [Fintype A] :
+    Primcodable (PrefMat A) :=
+  -- domain is  A × A ,  codomain is Bool
+  EncodeBasic.primcodablePiFin (α := A × A) (β := Bool)
 
-/-! 3 ▸  Both are *automatically* `Primcodable` via `primcodablePiFin`.  -/
 noncomputable
-instance prefMatPrim     {A} [Fintype A]              : Primcodable (PrefMat A) :=
-  primcodablePiFin      -- domain  A×A  is `Primcodable` by step 0
-
-noncomputable
-instance profileMatPrim {α A} [Fintype α] [Fintype A] : Primcodable (ProfileMat α A) :=
-  primcodablePiFin      -- domain  Fin k  already `Primcodable` in mathlib
-
+instance profileMatPrim {α A} [Fintype α] [Fintype A] :
+    Primcodable (ProfileMat α A) :=
+  -- domain is  Fin (card α) ,  codomain is PrefMat A
+  EncodeBasic.primcodablePiFin
+    (α := Fin (Fintype.card α)) (β := PrefMat A)
 
 /-! 4 ▸  Smoke test ----------------------------------------------------- -/
 #synth Primcodable (PrefMat (Fin 3))

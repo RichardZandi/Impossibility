@@ -24,11 +24,11 @@ lean_lib Impossibility where
   `Impossibility.CatAndTail.CatTailWitness,`Impossibility.CatAndTail.CatTailUCI,
   `Impossibility.Halting.HaltingUCI,`Impossibility.Halting.HaltingEvolution,
   `Impossibility.PZI.PZIUCI,`Impossibility.PZI.PZIEvolution,
-  `Impossibility.Arrow.ArrowTypes, `Impossibility.Arrow.ArrowAxioms,
+  `Impossibility.Arrow.ArrowTypes,
   `Impossibility.EvolutionInstance, `Impossibility.Arrow.ArrowHelper,
   `Impossibility.EncodableBasic, `Impossibility.PreferenceCodec,
   `Impossibility.UCICoreTest]
 
 -- `Impossibility.Arrow.ArrowUCI,
---
+--  `Impossibility.Arrow.ArrowAxioms,
 --   `Impossibility.Arrow.ArrowProof,
