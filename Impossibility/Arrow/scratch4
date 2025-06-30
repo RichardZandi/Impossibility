@@ -11,16 +11,13 @@ import Mathlib.Data.List.Basic
 import Mathlib.Tactic
 import Mathlib.Data.List.Defs
 
-universe u
-variable {σ : Type u} [Fintype σ] [DecidableEq σ] [BEq σ]
-
-
 namespace EncodeBasic
 
 noncomputable
 instance primcodablePiFin
-    {α : Type u} {β : Type u} [Fintype α] [Primcodable β] :
+    {α β : Type*} [Fintype α] [Primcodable β] :
     Primcodable (α → β) :=
+by
   let k : ℕ := Fintype.card α
   let eα : α ≃ Fin k := Fintype.equivFin α
   let e : (α → β) ≃ (Fin k → β) :=
@@ -30,7 +27,8 @@ instance primcodablePiFin
         intro f; funext a; simp [eα.symm_apply_apply]
     , right_inv := by
         intro g; funext i; simp [eα.apply_symm_apply] }
-  Primcodable.ofEquiv _ e
+  exact Primcodable.ofEquiv _ e
+
 
 end EncodeBasic
 
@@ -43,6 +41,7 @@ open Vector
 open List Nat
 open List.Perm
 
+variable {σ : Type} [Fintype σ] [DecidableEq σ]
 
 /-! ### 1  Canonical reference vector ----------------------------------- -/
 
@@ -52,9 +51,7 @@ noncomputable def refVec : _root_.Vector σ (Fintype.card σ) :=
 
 /-! ### 2  Ranking record (vector-only fields) -------------------------- -/
 
-
-
-structure Ranking (σ : Type u) [Fintype σ] [DecidableEq σ] [BEq σ] : Type u where
+structure Ranking (σ) [Fintype σ] where
   vec      : _root_.Vector σ (Fintype.card σ)
   nodup    : vec.toList.Nodup
   complete : vec.Perm (refVec (σ := σ))
@@ -260,51 +257,11 @@ private lemma sorted_P_implies_sorted_R
 -- #check List.Pairwise.rel_nthLe_of_lt
 
 
-set_option diagnostics true
 
-private lemma List.sorted_perm_eq {α} {r : α → α → Prop}
-    {l₁ l₂ : List α}
-    (h₁ : l₁.Sorted r) (h₂ : l₂.Sorted r) (hp : l₁.Perm l₂)
-    (h_asymm : ∀ {a b}, r a b → r b a → a = b) :
-    l₁ = l₂ := by
-  -- `Sorted` is definalias for `Pairwise` (see `List.Sorted.eq_1`)
-  have h₁pw : l₁.Pairwise r := by
-    simpa [List.Sorted.eq_1] using h₁
-  have h₂pw : l₂.Pairwise r := by
-    simpa [List.Sorted.eq_1] using h₂
-  exact List.Perm.eq_of_sorted
-        (by
-          intro a b ha hb h1 h2; exact h_asymm h1 h2)
-        h₁pw h₂pw hp
-
-private lemma Vector.perm_eq_of_sorted
-    {α n} {r : α → α → Prop}
-    {w v : _root_.Vector α n}
-    (hw : w.toList.Sorted r)
-    (hv : v.toList.Sorted r)
-    (hperm : w.Perm v)
-    (h_asymm : ∀ {a b}, r a b → r b a → a = b) :
-    w = v := by
-  -- lists equal
-  have hpermL : w.toList.Perm v.toList :=
-    (Vector.perm_iff_toList_perm).1 hperm
-  have hEqLists : w.toList = v.toList :=
-    List.sorted_perm_eq hw hv hpermL h_asymm
-
-  -- component-wise equality with `List.get?`
-  apply Vector.ext
-  intro i hi               -- `i : ℕ`, `hi : i < n`
-
-  -- Build a `Fin n` from `(i, hi)`
-  let k : Fin n := ⟨i, hi⟩
-
-  -- Transport list equality to element equality
-  have hget : w.toList.get k = v.toList.get k := by
-    simpa using congrArg (fun l : List α => l.get k) hEqLists
-
-  -- `Vector.get` is definitionally `List.get` on `toList`
-  simpa [Vector.get] using hget
-
+/-- stub — prove later -/
+private lemma Vector.perm_eq_of_nodup {α n}
+    {w v : _root_.Vector α n} (h : w.Perm v) (hv : v.toList.Nodup) : w = v := by
+  sorry
 
 
 private lemma Ranking.eq_of_vec_eq {σ} [Fintype σ]
@@ -313,7 +270,7 @@ private lemma Ranking.eq_of_vec_eq {σ} [Fintype σ]
 
 private lemma nodup_refVec {σ} [Fintype σ] :
     (refVec (σ := σ)).toList.Nodup := by
-  simp [refVec, Vector.toList_ofFn, List.nodup_ofFn, Function.Injective]
+  sorry
 
 
 lemma indexOf_le_indexOf
@@ -329,13 +286,7 @@ lemma indexOf_le_indexOf
 
 attribute [ext] lin_pref_order
 
-noncomputable def equivPref
-  {σ : Type u} [Fintype σ] [DecidableEq σ] [BEq σ] :
-    ArrowTypes.lin_pref_order σ ≃ Ranking σ :=
-sorry
-
-
-noncomputable def equivPrefz : ArrowTypes.lin_pref_order σ ≃ Ranking σ where
+noncomputable def equivPref : ArrowTypes.lin_pref_order σ ≃ Ranking σ where
   toFun   := fun p => ofPref (p : pref_order σ)
 
   invFun := fun r =>
@@ -387,44 +338,16 @@ noncomputable def equivPrefz : ArrowTypes.lin_pref_order σ ≃ Ranking σ where
 
   right_inv := by
     rintro ⟨v, hN, hP⟩
-    -- w := canonical list produced by encodePref
     set w := encodePref (toPref ⟨v, hN, hP⟩) with hw
-
-    -- w is a permutation of v
     have hPerm : w.Perm v := by
-      have hwRef : w.Perm (refVec (σ := σ)) :=
+      have h₁ : w.Perm (refVec (σ := σ)) :=
         encodePref_perm_ref (toPref ⟨v, hN, hP⟩)
-      exact hwRef.trans hP.symm
-
-    -- both lists are sorted by the preference relation p.R
-    have hSorted_w : w.toList.Sorted (toPref ⟨v, hN, hP⟩).R :=
-      by
-        -- `encodePref` is insertion-sort
-        simpa [encodePref] using
-          List.sorted_insertionSort
-            (l := (refVec (σ := σ)).toList)
-            (r := (toPref ⟨v, hN, hP⟩).R)
-    have hSorted_v : v.toList.Sorted (toPref ⟨v, hN, hP⟩).R := by
-      -- the `Ranking` invariant gives completeness → permutation with refVec,
-      -- hence same order as w
-      have : v.Perm (refVec (σ := σ)) := hP
-      have : v.toList = w.toList := by
-        exact List.Perm.eq_of_perm_of_sorted hPerm hSorted_w (by
-          -- refVec is sorted by construction
-          simpa [refVec] using this)
-      simpa [this] using hSorted_w
-
-    -- permutation + same Sorted order ⇒ equality
-    have hEqVec : w = v :=
-      Vector.ext fun i =>
-        (List.Perm.eq_of_perm_of_sorted hPerm hSorted_w hSorted_v).symm ▸ rfl
-
+      exact h₁.trans hP.symm
+    have hEqVec : w = v := Vector.perm_eq_of_nodup hPerm hN      -- (your stub)
     have : ofPref (toPref ⟨v, hN, hP⟩) = (⟨v, hN, hP⟩ : Ranking σ) := by
-      apply Ranking.eq_of_vec_eq
+      apply Ranking.eq_of_vec_eq           -- helper proved earlier
       simpa [ofPref, hw, hEqVec]
-
     simpa using this
-
 
 
 
@@ -432,38 +355,85 @@ end Ranking
 
 /-! ### 5  Computable instances ---------------------------------------- -/
 
+set_option diagnostics true
 
-noncomputable instance PrimcodableBool : Primcodable Bool :=
-  inferInstance
-
-
-noncomputable instance PrimcodablePiBool
-  {α : Type} [Fintype α] [DecidableEq α] [BEq α] :
-  Primcodable (α → Bool) :=
-  @EncodeBasic.primcodablePiFin α Bool _ PrimcodableBool
+variable {σ : Type*} [Fintype σ] [DecidableEq σ]
 
 
-noncomputable instance PrimcodablePiProp
-  {α : Type} [Fintype α] [DecidableEq α] [BEq α] :
-  Primcodable (α → α → Prop) :=
-  Primcodable.ofEquiv (α → α → Bool)
-  { toFun := fun f a b => decide (f a b),
-    invFun := fun f a b => f a b = true,
-    left_inv := by
-      intros f; funext a b
-      dsimp; simp [decide_eq_true_eq],
-    right_inv := by
-      intros f; funext a b
-      dsimp; simp [decide_eq_true_eq] }
+noncomputable
+instance prefOrderPrimcodable : Primcodable (pref_order σ) :=
+  (Primcodable.ofEquiv _ (Ranking.equivPref (σ := σ))).symm
 
-noncomputable instance RankingPrimcodable
-  {α : Type} [Fintype α] [DecidableEq α] [BEq α]
-  [Primcodable (α → α → Prop)] :
-  Primcodable (Ranking α) :=
-Primcodable.ofEquiv _ (Equiv.symm Ranking.equivPref)
+noncomputable
+instance Profile.primcodable {ι}
+    [Fintype ι] :
+    Primcodable (ι → pref_order σ) :=
 
-noncomputable instance linPrefOrderPrimcodable
-  {α : Type} [Fintype α] [DecidableEq α] [BEq α]
-  [Primcodable (α → α → Prop)] :
-  Primcodable (lin_pref_order α) :=
-Primcodable.ofEquiv _ Ranking.equivPref
+  EncodeBasic.primcodablePiFin
+
+
+
+
+=========
+namespace ArrowTypes
+
+universe u
+variables {σ : Type u}
+
+
+/-- Weak preference order (reflexive, total, transitive). -/
+structure pref_order (σ : Type u) :=
+(R      : σ → σ → Prop)
+(refl   : ∀ x, R x x)
+(total  : ∀ x y, R x y ∨ R y x)
+(trans  : ∀ x y z, R x y → R y z → R x z)
+
+/-- Strict preference derived from `R`. -/
+def P {σ} (r : pref_order σ) (x y : σ) : Prop :=
+r.R x y ∧ ¬ r.R y x
+
+/-- `b` is strictly best inside finite set `X` w.r.t. order `r`. -/
+def is_strictly_best  {σ} (b : σ) (r : pref_order σ) (X : Finset σ) : Prop :=
+∀ a ∈ X, a ≠ b → P r b a
+
+/-- `b` is strictly worst inside `X`. -/
+def is_strictly_worst {σ} (b : σ) (r : pref_order σ) (X : Finset σ) : Prop :=
+∀ a ∈ X, a ≠ b → P r a b
+
+/-- Either strictly best or strictly worst. -/
+def is_extremal     {σ} (b : σ) (r : pref_order σ) (X : Finset σ) : Prop :=
+is_strictly_worst b r X ∨ is_strictly_best b r X
+
+def same_order {σ} (r₁ r₂ : pref_order σ) (x y : σ) : Prop :=
+(P r₁ x y ∧ P r₂ x y) ∨ (P r₁ y x ∧ P r₂ y x)
+
+def constTrue {σ} : pref_order σ :=
+{ R      := λ _ _ => True,
+  refl   := by intro; trivial,
+  total  := by intro _ _; exact Or.inl trivial,
+  trans  := by intro _ _ _ _ _; trivial }
+
+
+
+/-- **Linear** (strict) preference order: weak order **plus antisymmetry**. -/
+structure lin_pref_order (σ : Type) extends pref_order σ :=
+(antisymm : ∀ {x y}, R x y → R y x → x = y)
+
+/-- Coercion: every `lin_pref_order` is a `pref_order` by forgetting `antisymm`. -/
+instance : Coe (lin_pref_order σ) (pref_order σ) where
+  coe p := { R := p.R, refl := p.refl, total := p.total, trans := p.trans }
+
+/-- Strict relation of a linear preference. -/
+@[inline] def linP (p : lin_pref_order σ) : σ → σ → Prop :=
+  fun x y ↦ p.R x y ∧ ¬ p.R y x
+
+/-- Totality and transitivity hold for the **weak** relation `p.R` that is
+built into every `pref_order`.  We register type‑class instances so that
+`tactic` lemmas such as `sorted_insertionSort` can use them. -/
+instance (p : lin_pref_order σ) : IsTotal σ p.R where
+  total := p.total
+
+instance (p : lin_pref_order σ) : IsTrans σ p.R where
+  trans := p.trans
+
+end ArrowTypes

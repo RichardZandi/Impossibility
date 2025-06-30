@@ -119,11 +119,7 @@ noncomputable def constPref (x y : σ) [DecidableEq σ] : pref_order σ :=
 
 
 
-def constTrue {σ} : pref_order σ :=
-{ R      := λ _ _ => True,
-  refl   := by intro; trivial,
-  total  := by intro _ _; exact Or.inl trivial,
-  trans  := by intro _ _ _ _ _; trivial }
+
 
 noncomputable def constXY {σ ι} [DecidableEq σ] (x y : σ) : Rule σ ι :=
   λ _ => constPref x y

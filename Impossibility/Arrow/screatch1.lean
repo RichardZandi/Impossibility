@@ -1,6 +1,8 @@
 /-!  ------------------------------------------------------------
      Good-code classifier for Arrow’s proof
      ------------------------------------------------------------ -/
+
+
 open ArrowHelper  -- brings GoodCode namespace in
 
 variable {σ ι} [DecidableEq σ] [Inhabited ι] (X : Finset σ)
