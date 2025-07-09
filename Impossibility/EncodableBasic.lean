@@ -3,6 +3,7 @@ import Mathlib.Computability.Partrec
 import Mathlib.Logic.Equiv.Basic
 import Mathlib.Data.Fin.Basic
 import Mathlib.Data.Vector.Basic
+import Mathlib.Data.Vector.Defs
 import Impossibility.Arrow.ArrowTypes
 import Mathlib.Data.List.Sort
 import Mathlib.Data.List.Perm.Basic
@@ -10,10 +11,10 @@ import Mathlib.Data.List.OfFn
 import Mathlib.Data.List.Basic
 import Mathlib.Tactic
 import Mathlib.Data.List.Defs
+import Init.Data.List.Lemmas
 
 universe u
-variable {σ : Type u} [Fintype σ] [DecidableEq σ] [BEq σ]
-
+variable {σ : Type u} [Fintype σ] [DecidableEq σ] [BEq σ] [EquivBEq σ]
 
 namespace EncodeBasic
 
@@ -34,14 +35,14 @@ instance primcodablePiFin
 
 end EncodeBasic
 
-
+open Classical
+open Function
 open Fin
 open ArrowTypes
-open List
-open Classical
-open Vector
-open List Nat
+open List hiding Vector
+open Nat
 open List.Perm
+
 
 
 /-! ### 1  Canonical reference vector ----------------------------------- -/
@@ -146,8 +147,52 @@ lemma l_sorted : l.Sorted alphaOrder := by
   simp [l, alphaOrder, rank, List.Sorted, List.Pairwise]      -- succeeds
 
 
+/-! 1 ▸ an element read back at its own `indexOf` --------------------- -/
+lemma get_at_indexOf
+    {α} [DecidableEq α] {l : List α}
+    (hN : l.Nodup) {a : α} (ha : a ∈ l) :
+    l.get ⟨l.indexOf a, List.indexOf_lt_length ha⟩ = a := by
+  -- library lemma once we spell out `l`
+  simpa using List.get_indexOf (l := l) hN ha
 
+
+/-! 2 ▸ same `indexOf` ⇒ same element --------------------------------- -/
 lemma List.eq_of_indexOf_eq
+    {α : Type _} [DecidableEq α] [BEq α] [EquivBEq α]
+    {l : List α} (hN : l.Nodup)
+    {x y : α} (hx : x ∈ l) (hy : y ∈ l)
+    (hIdx : l.indexOf x = l.indexOf y) : x = y := by
+  classical
+  ----------------------------------------------------------------
+  -- equality provided by the first lemma for each element
+  ----------------------------------------------------------------
+  have hGetx :
+      l.get ⟨l.indexOf x, List.indexOf_lt_length hx⟩ = x :=
+    get_at_indexOf (l := l) hN hx
+
+  have hGety :
+      l.get ⟨l.indexOf y, List.indexOf_lt_length hy⟩ = y :=
+    get_at_indexOf (l := l) hN hy
+
+  ----------------------------------------------------------------
+  -- turn the numeric index equality into a `Fin` equality
+  ----------------------------------------------------------------
+  have hFin :
+      (⟨l.indexOf x, List.indexOf_lt_length hx⟩ : Fin l.length) =
+      ⟨l.indexOf y, List.indexOf_lt_length hy⟩ := by
+    apply Fin.ext
+    simpa using hIdx
+
+  ----------------------------------------------------------------
+  -- rewrite `hGety` along that equality, then finish
+  ----------------------------------------------------------------
+  have : l.get ⟨l.indexOf x, List.indexOf_lt_length hx⟩ = y := by
+    simpa [hFin] using hGety
+
+  simpa [hGetx] using this
+
+
+lemma List.eq_of_indexOf_eq1
     {α : Type _} [DecidableEq α]
     {l : List α} (hN : l.Nodup)
     {x y : α} (hx : x ∈ l) (hy : y ∈ l)
@@ -215,7 +260,7 @@ private lemma sorted_P_implies_sorted_R
     intro a b hP; exact hP.1)
 
 
-/- THESE HELPER LEMMAS WORKS-/
+/- THESE HELPER LEMMAS WORK-/
 #check sorted_P_implies_sorted_R
 #check Sorted.imp
 #check mem_of_complete
@@ -232,6 +277,22 @@ private lemma sorted_P_implies_sorted_R
 #check List.pairwise_iff_get
 #check List.indexOf_lt_length
 #check List.get_indexOf
+#check List.Vector.toList_injective
+#check Vector.toList_injective
+#check sorted_P_implies_sorted_R
+#check List.indexOf
+#check Vector.toList
+#check List.get           -- expected: (l : List α) → Fin l.length → α
+#check List.get_eq_getElem
+#check List.pairwise_iff_get
+#check List.get_indexOf
+#check List.get_eq_getElem   -- Lean shows either  `l.get i = l[↑i]`  or  the reverse
+#check (fun (l : List Nat) (i : Fin l.length) ↦ l[i])
+#check List.indexOf_lt_length
+#check List.Sorted.rel_get_of_lt
+
+
+
 
 /-THESE DO NOT WORK-/
 -- #check List.idxOf_eq_some
@@ -258,6 +319,20 @@ private lemma sorted_P_implies_sorted_R
 -- #check List.mem_drop
 -- #check List.Sorted.rel_nthLe_of_lt
 -- #check List.Pairwise.rel_nthLe_of_lt
+-- #check Array.toList_injective Dont' Have
+-- #check List.rel_get_of_le
+-- #check eq_of_toList_eq                  -- the lemma we kept
+-- #check _root_.Vector.toList
+-- #check List.indexOf_cons_of_ne
+-- #check (·[·] : List _ → _ → _)
+-- #check pairwise_rel_on_indices
+-- #check List.indexOf_eq_some
+-- #check List.mem_take
+-- #check List.mem_drop
+-- #check List.Pairwise.rel_get_of_lt
+
+
+
 
 
 set_option diagnostics true
@@ -277,34 +352,67 @@ private lemma List.sorted_perm_eq {α} {r : α → α → Prop}
           intro a b ha hb h1 h2; exact h_asymm h1 h2)
         h₁pw h₂pw hp
 
-private lemma Vector.perm_eq_of_sorted
-    {α n} {r : α → α → Prop}
-    {w v : _root_.Vector α n}
-    (hw : w.toList.Sorted r)
-    (hv : v.toList.Sorted r)
-    (hperm : w.Perm v)
-    (h_asymm : ∀ {a b}, r a b → r b a → a = b) :
-    w = v := by
-  -- lists equal
-  have hpermL : w.toList.Perm v.toList :=
-    (Vector.perm_iff_toList_perm).1 hperm
-  have hEqLists : w.toList = v.toList :=
-    List.sorted_perm_eq hw hv hpermL h_asymm
 
-  -- component-wise equality with `List.get?`
-  apply Vector.ext
-  intro i hi               -- `i : ℕ`, `hi : i < n`
 
-  -- Build a `Fin n` from `(i, hi)`
-  let k : Fin n := ⟨i, hi⟩
 
-  -- Transport list equality to element equality
-  have hget : w.toList.get k = v.toList.get k := by
-    simpa using congrArg (fun l : List α => l.get k) hEqLists
+lemma get_injective_of_nodup
+    {α} {l : List α} (hN : l.Nodup) :
+    Function.Injective (fun i : Fin l.length => l.get i) := by
+  classical
+  -- we build a `Pairwise (≠)` witness by simple induction on `Nodup`
+  have hPW : List.Pairwise (fun a b : α => a ≠ b) l := by
+    induction hN with
+    | nil =>
+        exact List.Pairwise.nil
+    | @cons a l hNotMem hN ih =>
+        exact List.Pairwise.cons
+          (by
+            intro b hb            -- hb : b ∈ l
+            intro hEq             -- goal: a ≠ b
+            cases hEq             -- now goal: a ≠ a  ≡  False
+            exact (hNotMem _ hb) rfl)   -- supply both args to hNotMem, then `rfl`
+          ih
+  -- turn that `Pairwise` into the “elements at different indices are different” view
+  have hNe := (List.pairwise_iff_get
+                (R := (fun a b : α => a ≠ b))).1 hPW
+  -- wrap up the injectivity proof
+  intro i j hij
+  by_cases hVal : i.val = j.val
+  · exact Fin.ext hVal           -- indices already equal
+  · -- otherwise they’re strictly ordered, contradicting `hNe`
+    have hlt : i.val < j.val ∨ j.val < i.val :=
+      (Nat.lt_or_gt_of_ne hVal)
+    cases hlt with
+    | inl hlt =>
+        have hneq := hNe i j hlt
+        exact (hneq hij).elim
+    | inr hgt =>
+        have hneq := hNe j i hgt
+        have hneq' : l.get i ≠ l.get j := by
+          intro h; exact hneq h.symm
+        exact (hneq' hij).elim
 
-  -- `Vector.get` is definitionally `List.get` on `toList`
-  simpa [Vector.get] using hget
+lemma indexOf_get_nat
+    {α} [DecidableEq α] {l : List α}
+    (hN : l.Nodup) (i : Fin l.length) :
+    l.indexOf (l.get i) = i.val := by
+  classical
 
+  have hMem : l.get i ∈ l := by
+    simpa using List.get_mem (l := l) (n := i)
+
+  have hLt : l.indexOf (l.get i) < l.length :=
+    List.indexOf_lt_length hMem
+
+  set j : Fin l.length := ⟨_, hLt⟩ with hjDef   -- so we can rewrite `j.val`
+
+  have hGet : l.get j = l.get i := by
+    simpa [hjDef] using List.get_indexOf hMem
+
+  have hEq : j = i :=
+    (get_injective_of_nodup (α := α) (l := l) hN) hGet
+
+  simpa [hjDef] using congrArg Fin.val hEq
 
 
 private lemma Ranking.eq_of_vec_eq {σ} [Fintype σ]
@@ -315,27 +423,147 @@ private lemma nodup_refVec {σ} [Fintype σ] :
     (refVec (σ := σ)).toList.Nodup := by
   simp [refVec, Vector.toList_ofFn, List.nodup_ofFn, Function.Injective]
 
+open List
+
+lemma indexOf_lt_len {α} [DecidableEq α] {l : List α} {a : α}
+    (h : a ∈ l) : l.indexOf a < l.length :=
+  List.indexOf_lt_length h
+
+
+lemma indexOf_head_or_tail (a x : α) (xs : List α) :
+    List.indexOf a (x :: xs) =
+      if h : a = x then 0 else List.indexOf a xs + 1 := by
+  by_cases h : a = x
+  ·           -- head case
+    subst h
+    simp [List.indexOf]
+  ·           -- tail case
+    -- Lean also needs `x ≠ a`
+    have hxne : x ≠ a := by
+      intro hx
+      exact h (hx.symm)
+    simp [List.indexOf, h, hxne, Nat.succ_eq_add_one]
+
+
+lemma indexOf_cons_eq_zero (a x : α) (xs : List α) (h : a = x) :
+    List.indexOf a (x :: xs) = 0 := by
+  simp [indexOf_head_or_tail, h]
+
+lemma indexOf_cons_ne (a x : α) (xs : List α) (h : a ≠ x) :
+    List.indexOf a (x :: xs) = List.indexOf a xs + 1 := by
+  have hxne : x ≠ a := by
+    intro hx; exact h (hx.symm)
+  simp [indexOf_head_or_tail, h, hxne]
+
+
+
+lemma pairwise_rel_on_indices
+    {α} {r : α → α → Prop} {l : List α}
+    (h : l.Pairwise r) {i j : Fin l.length} (hij : (i : ℕ) < j) :
+    r (l.get i) (l.get j) :=
+by
+  -- one direction of `pairwise_iff_get`
+  have := (pairwise_iff_get).1 h
+  simpa using this i j hij
+
+/-- rewrite the bracket form `l[↑i]` into `l.get i` -/
+@[simp] lemma bracket_to_get {α}
+    (l : List α) (i : Fin l.length) :
+    (l[↑i] : α) = l.get i := by
+  -- In your build `List.get_eq_getElem` is `l.get i = l[↑i]`,
+  -- so we take its symmetric form.
+  have := List.get_eq_getElem (l := l) (i := i)
+  simpa using this.symm
+
+/-- rewrite `l.get i` back to the bracket form -/
+@[simp] lemma get_to_bracket {α} (l : List α) (i : Fin l.length) :
+    l.get i = l[↑i] :=
+  by
+    simp [List.get_eq_getElem]
+
+
 
 lemma indexOf_le_indexOf
-    {α : Type*} [DecidableEq α] {r : α → α → Prop}
+    {α : Type*} [DecidableEq α]
+    {r : α → α → Prop} [IsRefl α r]
     (antisymm : ∀ {x y : α}, r x y → r y x → x = y)
     {l : List α} (hSorted : l.Sorted r) (hNodup : l.Nodup)
     {a b : α} (ha : a ∈ l) (hb : b ∈ l) :
     l.indexOf a ≤ l.indexOf b ↔ r a b := by
-  -- proof to be filled in later
-  sorry
+  classical
+  refine ⟨?fwd, ?bwd⟩
 
+  ------------------------------------------------------------------ forward →
+  · intro hIdx
+    -- package the two `indexOf`s as `Fin`s
+    have ha_lt : l.indexOf a < l.length := List.indexOf_lt_length ha
+    have hb_lt : l.indexOf b < l.length := List.indexOf_lt_length hb
+    let ia : Fin l.length := ⟨l.indexOf a, ha_lt⟩
+    let ib : Fin l.length := ⟨l.indexOf b, hb_lt⟩
+
+    have hrel : r (l.get ia) (l.get ib) :=
+      hSorted.rel_get_of_le (by
+        dsimp [ia, ib]; exact hIdx)
+
+    have hgeta : l.get ia = a := by
+      simpa [ia] using List.get_indexOf ha
+    have hgetb : l.get ib = b := by
+      simpa [ib] using List.get_indexOf hb
+
+    have hgeta' : (l[↑ia] : α) = a := by
+      simpa [List.get_eq_getElem] using hgeta
+    have hgetb' : (l[↑ib] : α) = b := by
+      simpa [List.get_eq_getElem] using hgetb
+
+    trace_state
+    have h_ab : r a b := by
+      have h := hrel                       -- start from r (l.get ia) (l.get ib)
+      simp_rw [hgeta, hgetb] at h          -- rewrite both sides using the equalities
+      exact h
+
+    exact h_ab
+
+  ------------------------------------------------------------------ backward ←
+  · intro hRel
+    by_contra hNotLe                         -- introduce the negated goal
+    have hLt : l.indexOf b < l.indexOf a :=
+      Nat.lt_of_not_ge hNotLe
+
+    -- build `Fin`s again
+    have ha_lt : l.indexOf a < l.length := List.indexOf_lt_length ha
+    have hb_lt : l.indexOf b < l.length := List.indexOf_lt_length hb
+    let ia : Fin l.length := ⟨l.indexOf a, ha_lt⟩
+    let ib : Fin l.length := ⟨l.indexOf b, hb_lt⟩
+
+    -- `Sorted` gives the *opposite* relation because indices are flipped
+    have hrel' : r (l.get ib) (l.get ia) :=
+      hSorted.rel_get_of_lt (by
+        dsimp [ia, ib]; exact hLt)
+
+    -- rewrite `get`s back to `a`, `b`
+    have hgeta : l.get ia = a := by
+      simpa [ia] using List.get_indexOf ha
+    have hgetb : l.get ib = b := by
+      simpa [ib] using List.get_indexOf hb
+
+    -- rewrite only with those equalities
+    have hba : r b a := by
+      have h := hrel'
+      simp_rw [hgeta, hgetb] at h
+      exact h
+
+    -- antisymmetry forces a = b, contradicting strict inequality
+    have hEq : a = b := antisymm hRel hba
+    have : l.indexOf a < l.indexOf a := by
+      simpa [hEq] using hLt
+    exact (Nat.lt_irrefl _ this).elim
 
 
 attribute [ext] lin_pref_order
 
-noncomputable def equivPref
-  {σ : Type u} [Fintype σ] [DecidableEq σ] [BEq σ] :
-    ArrowTypes.lin_pref_order σ ≃ Ranking σ :=
-sorry
 
 
-noncomputable def equivPrefz : ArrowTypes.lin_pref_order σ ≃ Ranking σ where
+noncomputable def equivPref : ArrowTypes.lin_pref_order σ ≃ Ranking σ where
   toFun   := fun p => ofPref (p : pref_order σ)
 
   invFun := fun r =>
@@ -354,77 +582,135 @@ noncomputable def equivPrefz : ArrowTypes.lin_pref_order σ ≃ Ranking σ where
               have hIdx :
                   (r.vec.toList).indexOf x = (r.vec.toList).indexOf y :=
                 Nat.le_antisymm hxy hyx
-              have hx : x ∈ r.vec.toList := mem_of_complete r x
-              have hy : y ∈ r.vec.toList := mem_of_complete r y
-              exact List.eq_of_indexOf_eq r.nodup hx hy hIdx }
+              have hx : x ∈ r.vec.toList := by
+                -- every element is in the canonical reference vector
+                have href : x ∈ (refVec (σ := σ)).toList := mem_refVec x
+                -- transport membership across the permutation in `r.complete`
+                exact (vector_perm_mem_iff r.complete x).mpr href
+              have hy : y ∈ r.vec.toList := by
+                have href : y ∈ (refVec (σ := σ)).toList := mem_refVec y
+                exact (vector_perm_mem_iff r.complete y).mpr href
+                            -- indices equal ⇒ elements equal, avoiding the BEq clash
+              exact List.eq_of_indexOf_eq r.nodup hx hy hIdx
+              }
 
   left_inv := by
     intro p
     ext a b
-    set L : List σ := (encodePref (p : pref_order σ)).toList with hL
-    have hPermVec := encodePref_perm_ref (p : pref_order σ) (σ := σ)
+
+    set L : List σ := (encodePref p.topref_order).toList with hL
+
+    have hPermVec := encodePref_perm_ref (σ := σ) (p := p.topref_order)
+
     have ha : a ∈ L := by
       have : a ∈ (refVec (σ := σ)).toList := mem_refVec a
       simpa [hL] using (vector_perm_mem_iff hPermVec a).2 this
     have hb : b ∈ L := by
       have : b ∈ (refVec (σ := σ)).toList := mem_refVec b
       simpa [hL] using (vector_perm_mem_iff hPermVec b).2 this
+
     have hSorted : L.Sorted p.R := by
       simpa [hL, encodePref] using
         List.sorted_insertionSort
           (l := (refVec (σ := σ)).toList)
           (r := p.R)
+
     have hNodup : L.Nodup := by
       have hPermList : List.Perm L (refVec (σ := σ)).toList :=
         (Vector.perm_iff_toList_perm).1 hPermVec
       exact (hPermList.nodup_iff).mpr nodup_refVec
-    have hIdx :=
+
+    have hIdx :
+        L.indexOf a ≤ L.indexOf b ↔ p.R a b :=
       indexOf_le_indexOf
         (antisymm := by
-          intro x y hxy hyx; exact p.antisymm hxy hyx)
+          intro x y hxy hyx
+          exact p.antisymm hxy hyx)
         hSorted hNodup ha hb
-    simpa [hL] using hIdx
+
+    simpa [ofPref, Ranking.toPref, hL] using hIdx
+
 
   right_inv := by
-    rintro ⟨v, hN, hP⟩
-    -- w := canonical list produced by encodePref
-    set w := encodePref (toPref ⟨v, hN, hP⟩) with hw
+    rintro ⟨v, hN, hP⟩                -- any `Ranking σ`
+    set w : _root_.Vector σ (Fintype.card σ) :=
+      encodePref (toPref ⟨v, hN, hP⟩) with hw
 
-    -- w is a permutation of v
     have hPerm : w.Perm v := by
+      -- `w` perm refVec and `v` perm refVec ⇒ `w` perm `v`
       have hwRef : w.Perm (refVec (σ := σ)) :=
-        encodePref_perm_ref (toPref ⟨v, hN, hP⟩)
-      exact hwRef.trans hP.symm
+        encodePref_perm_ref (σ := σ) (p := toPref ⟨v, hN, hP⟩)
+      exact hwRef.trans hP.symm                       -- hP : v perm refVec
 
-    -- both lists are sorted by the preference relation p.R
-    have hSorted_w : w.toList.Sorted (toPref ⟨v, hN, hP⟩).R :=
-      by
-        -- `encodePref` is insertion-sort
-        simpa [encodePref] using
-          List.sorted_insertionSort
-            (l := (refVec (σ := σ)).toList)
-            (r := (toPref ⟨v, hN, hP⟩).R)
-    have hSorted_v : v.toList.Sorted (toPref ⟨v, hN, hP⟩).R := by
-      -- the `Ranking` invariant gives completeness → permutation with refVec,
-      -- hence same order as w
-      have : v.Perm (refVec (σ := σ)) := hP
-      have : v.toList = w.toList := by
-        exact List.Perm.eq_of_perm_of_sorted hPerm hSorted_w (by
-          -- refVec is sorted by construction
-          simpa [refVec] using this)
-      simpa [this] using hSorted_w
+    haveI : IsTotal σ (toPref ⟨v, hN, hP⟩).R :=
+      ⟨by intro a b; dsimp [toPref]; exact Nat.le_total _ _⟩
+    haveI : IsTrans σ (toPref ⟨v, hN, hP⟩).R :=
+      ⟨by intro a b c; dsimp [toPref]; exact Nat.le_trans⟩
 
-    -- permutation + same Sorted order ⇒ equality
-    have hEqVec : w = v :=
-      Vector.ext fun i =>
-        (List.Perm.eq_of_perm_of_sorted hPerm hSorted_w hSorted_v).symm ▸ rfl
+    have hSorted_w :
+        w.toList.Sorted (toPref ⟨v, hN, hP⟩).R := by
+      simpa [hw, encodePref] using
+        List.sorted_insertionSort
+          (l := (refVec (σ := σ)).toList)
+          (r := (toPref ⟨v, hN, hP⟩).R)
 
-    have : ofPref (toPref ⟨v, hN, hP⟩) = (⟨v, hN, hP⟩ : Ranking σ) := by
+    have hSorted_v :
+        v.toList.Sorted (toPref ⟨v, hN, hP⟩).R := by
+      -- prove the Pairwise form directly from indices
+      have hPair :
+          v.toList.Pairwise (toPref ⟨v, hN, hP⟩).R := by
+        -- use `pairwise_iff_get`
+        apply (List.pairwise_iff_get).2
+        intro i j hlt                        -- i < j
+        -- expand the relation: indexOf … ≤ indexOf …
+        dsimp [toPref]                           -- expand the relation
+
+        have hi : indexOf (v[↑i]) v.toList = (i : ℕ) := by
+          letI : BEq σ := instBEqOfDecidableEq
+          -- `bracket_to_get`   :  (l[↑i] : α) = l.get i
+          trace_state
+          simpa [bracket_to_get] using
+            (indexOf_get_nat (l := v.toList) hN i)
+
+        have hj : indexOf (v[↑j]) v.toList = (j : ℕ) := by
+          letI : BEq σ := instBEqOfDecidableEq
+          simpa [bracket_to_get] using
+            (indexOf_get_nat (l := v.toList) hN j)
+
+        -- ❷  numeric inequality coming from  i < j ---------------------
+        have hle : (i : ℕ) ≤ j := Nat.le_of_lt hlt
+
+        -- ❸  close the goal -------------------------------------------
+        -- after rewriting with `hi` and `hj`, the goal *is* `hle`
+        simpa [hi, hj] using hle
+      simpa [List.Sorted] using hPair
+
+    have h_asymm :
+        ∀ {a b : σ},
+          (toPref ⟨v, hN, hP⟩).R a b →
+          (toPref ⟨v, hN, hP⟩).R b a →
+          a = b := by
+      intro a b hab hba
+      dsimp [toPref] at hab hba
+      exact Nat.le_antisymm hab hba
+
+    have hEqList : v.toList = w.toList := by
+      have hPermList : v.toList.Perm w.toList :=
+        (Vector.perm_iff_toList_perm).1 hPerm
+      exact List.sorted_perm_eq
+              hSorted_v hSorted_w hPermList h_asymm
+
+    have hEqVec : w = v := by
+      -- `Vector.toList` is injective
+      apply (Vector.toList_injective (α := σ))
+      simpa using hEqList.symm               -- orientation for `w = v`
+
+    have : ofPref (toPref ⟨v, hN, hP⟩) =
+        (⟨v, hN, hP⟩ : Ranking σ) := by
       apply Ranking.eq_of_vec_eq
-      simpa [ofPref, hw, hEqVec]
+      simpa [ofPref, hw] using hEqVec
 
     simpa using this
-
 
 
 
