@@ -290,6 +290,9 @@ private lemma sorted_P_implies_sorted_R
 #check (fun (l : List Nat) (i : Fin l.length) ↦ l[i])
 #check List.indexOf_lt_length
 #check List.Sorted.rel_get_of_lt
+#check Primrec.eq          -- does this exist?
+#check Primrec.beq         -- sometimes equality is via Nat.beq
+#check Primrec.to_comp     -- upgrade helper?
 
 
 
@@ -330,7 +333,11 @@ private lemma sorted_P_implies_sorted_R
 -- #check List.mem_take
 -- #check List.mem_drop
 -- #check List.Pairwise.rel_get_of_lt
-
+-- #check Primrec.eq_nat      -- maybe the nat-specialised version
+-- #check PrimrecRel.eq       -- or this one
+-- #check Primrec.toComputable
+-- #check Computable.decEq    -- if equality is directly `Computable`
+-- #check Computable.eq_nat
 
 
 

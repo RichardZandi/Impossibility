@@ -7,85 +7,119 @@ import Godelnumbering.Instances
 import Kleene2.KleeneFix
 import Impossibility.UCICoreTest
 import Mathlib.Tactic
+import Mathlib.Data.Nat.Pairing
+import Mathlib.Computability.Partrec
 
 open Classical
+open Nat
 open Nat.Partrec Code
 open Godel
 open Kleene
 open Kleene.UCI.Classifier
 
-namespace GoodhartUCI
+structure Sys where
+  metricCode : ℕ
+  goalCode   : ℕ
+  agentCode  : ℕ
+deriving DecidableEq
 
-structure Classifiers (D : Type) where
-  C : D → Bool
+def encodeSys : Sys → ℕ
+| ⟨m,g,a⟩ => Nat.pair m (Nat.pair g a)
 
-private def code0 : Code := Code.const 0
-private def code1 : Code := Code.const 1
+def decodeSys (n : ℕ) : Sys :=
+  let ⟨m,t⟩ := Nat.unpair n
+  let ⟨g,a⟩ := Nat.unpair t
+  { metricCode := m, goalCode := g, agentCode := a }
 
-lemma uciGeneral
-    {D : Type} [Numbering D] [Primcodable D]
-    (Φ        : Classifiers D)
-    (hC       : Computable Φ.C)
-    (hDec     : Computable (fun n : ℕ => (Numbering.decode n : D)))
-    (hExt     : ∀ {c₁ c₂ : Code},
-                 c₁.eval = c₂.eval →
-                 Φ.C (Numbering.decode (Encodable.encode c₁)) =
-                 Φ.C (Numbering.decode (Encodable.encode c₂)))
-    (bad good : Code)
-    (hBad  : Φ.C (Numbering.decode (Encodable.encode bad))  = false)
-    (hGood : Φ.C (Numbering.decode (Encodable.encode good)) = true) :
-    False := by
-  classical
-  have hBit : Computable (fun c : Code =>
-      Φ.C (Numbering.decode (Encodable.encode c))) := by
-    exact hC.comp ((hDec.comp Computable.encode))
-  have hSel : Computable (fun b : Bool => if b then bad else good) := by
-    simpa using ((Primrec.ite (by
-      dsimp [PrimrecPred]
-      simpa using (Primrec.id : Primrec (fun b : Bool => b)))
-      (Primrec.const bad) (Primrec.const good)).to_comp)
-  let f : Code → Code :=
-    fun c => if Φ.C (Numbering.decode (Encodable.encode c)) then bad else good
-  have hf : Computable f := by
-    simpa [f] using hSel.comp hBit
-  rcases kleene_fix hf with ⟨c₀, hc⟩
-  let d : D := Numbering.decode (Encodable.encode c₀)
-  have hΦ_eq :
-      Φ.C d = Φ.C (Numbering.decode (Encodable.encode (f c₀))) := by
-    dsimp [d]; exact hExt hc
-  cases hCd : Φ.C d with
-  | false =>
-      have hf₀ : f c₀ = good := by
-        simp [f, d, hCd]
-      have : (false : Bool) =
-          Φ.C (Numbering.decode (Encodable.encode good)) := by
-        simpa [hf₀, hCd] using hΦ_eq
-      simpa [hGood] using this
-  | true =>
-      have hf₀ : f c₀ = bad := by
-        simp [f, d, hCd]
-      have : (true : Bool) =
-          Φ.C (Numbering.decode (Encodable.encode bad)) := by
-        simpa [hf₀, hCd] using hΦ_eq
-      simpa [hBad] using this
+lemma encode_decode (s : Sys) : decodeSys (encodeSys s) = s := by
+  cases s <;> simp [encodeSys, decodeSys, unpair_pair]
 
-theorem goodhart :
-  ¬ ∃ Φ : Classifiers ℕ,
-      Computable Φ.C ∧
-      (∀ {c₁ c₂ : Code},
-         c₁.eval = c₂.eval →
-         Φ.C (Numbering.decode (Encodable.encode c₁)) =
-         Φ.C (Numbering.decode (Encodable.encode c₂))) ∧
-      Φ.C (Numbering.decode (Encodable.encode code0)) = false ∧
-      Φ.C (Numbering.decode (Encodable.encode code1)) = true
-:= by
-  rintro ⟨Φ, hC, hExt, h0, h1⟩
-  have hDec : Computable (fun n : ℕ => (Numbering.decode n : ℕ)) := by
-    simpa using (Computable.id : Computable (fun n : ℕ => n))
-  exact
-    uciGeneral Φ hC hDec
-               (by
-                 intro c₁ c₂ h; exact hExt h)
-               code0 code1 h0 h1
+instance : Encodable Sys where
+  encode := encodeSys
+  decode := fun n => some (decodeSys n)
+  encodek := by intro s; simp [encode_decode]
 
-end GoodhartUCI
+instance : Numbering Sys :=
+  ⟨encodeSys,decodeSys,by intro s; simp [encode_decode]⟩
+
+def tripleEquivSys : (ℕ × ℕ × ℕ) ≃ Sys where
+  toFun := fun t => ⟨t.1,t.2.1,t.2.2⟩
+  invFun := fun s => (s.metricCode,s.goalCode,s.agentCode)
+  left_inv := by intro t; cases t with | mk m g => cases g; rfl
+  right_inv := by intro s; cases s; rfl
+
+instance : Primcodable Sys :=
+  Primcodable.ofEquiv (α:=ℕ×ℕ×ℕ) tripleEquivSys.symm
+
+def faithful? (s : Sys) : Bool :=
+  decide (s.metricCode = s.goalCode)
+
+def goodSys : Sys := { metricCode:=0, goalCode:=0, agentCode:=0 }
+def badSys  : Sys := { metricCode:=0, goalCode:=1, agentCode:=0 }
+
+def good : Code := Code.const (encodeSys goodSys)
+def bad  : Code := Code.const (encodeSys badSys)
+
+def defaultCode : Code := Code.const 0
+
+instance : Numbering Code where
+  encode := fun c => Encodable.encode c
+  decode := fun n => (Encodable.decode (α := Code) n).getD defaultCode
+  decode_encode := by         -- use this field name
+    intro c
+    have h : Encodable.decode (α := Code) (Encodable.encode c) = some c := by
+      simpa using Encodable.encodek c
+    simp [h, defaultCode]
+
+
+instance : Primcodable Code := inferInstance
+
+def optionGetCode (o : Option Code) : Code :=
+  o.getD defaultCode
+
+lemma optionGetCode_computable : Computable optionGetCode := by
+  have h₁ : Computable (fun o : Option Code => o) := Computable.id
+  have h₂ : Computable (fun _ : Option Code => defaultCode) :=
+    Computable.const defaultCode
+  simpa using (Computable.option_getD (hf := h₁) (hg := h₂))
+
+/- the ℕ → Code decoder that `uciGeneral` expects -/
+def decCode (n : ℕ) : Code :=
+  optionGetCode (Encodable.decode (α := Code) n)
+
+lemma decCode_computable : Computable decCode := by
+  have hDec : Computable (fun n : ℕ =>
+      (Encodable.decode (α := Code) n : Option Code)) :=
+    Computable.decode
+  simpa [decCode] using optionGetCode_computable.comp hDec
+
+lemma decodeCode_computable : Computable decCode :=
+  decCode_computable
+
+@[simp] lemma decode_encode_code (c : Code) :
+    (Numbering.decode (Encodable.encode c) : Code) = c := by
+  have h : Encodable.decode (α := Code) (Encodable.encode c) = some c := by
+    simpa using Encodable.encodek c
+  simp [Numbering.decode, defaultCode, h]
+
+
+lemma goodhart_impossibility
+    (Φ    : Classifiers Code)
+    (hC   : Computable Φ.C)
+    (hExt : ∀ {c₁ c₂ : Code}, c₁.eval = c₂.eval → Φ.C c₁ = Φ.C c₂)
+    (hBad : Φ.C bad  = false)
+    (hGood: Φ.C good = true) :
+    False :=
+  Kleene.UCI.Classifier.uciGeneral
+    Φ
+    hC
+    decCode_computable
+    (by
+      intro c₁ c₂ h
+      have h' : Φ.C c₁ = Φ.C c₂ := hExt h
+      simpa [Numbering.decode_encode] using h')
+    bad good
+    (by
+      simpa [Numbering.decode_encode] using hBad)
+    (by
+      simpa [Numbering.decode_encode] using hGood)
